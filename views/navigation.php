@@ -3,9 +3,15 @@
 <header>
     <nav>
         <ul>
-            <li>Profile</li>
-            <li>Lists</li>
-            <li>Login</li>
+            <li>
+                <a href="../index.php">home</a>
+            </li>
+            <li>
+                <a href="../login.php">login</a>
+            </li>
+            <li>
+                <a href="../register.php">register</a>
+            </li>
         </ul>
     </nav>
 </header>

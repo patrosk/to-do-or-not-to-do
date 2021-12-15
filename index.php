@@ -1,24 +1,18 @@
-<?= 'To Do Or Not To Do'; ?>
-
 <?php require __DIR__ . '/views/header.php';
 require __DIR__ . '/views/navigation.php'; ?>
 
-<h1>This is the Landing Page</h1>
-<h2>Log in</h2>
-<form action="">
-    <label for="username">user name:</label>
-    <input type="text">
-    <label for="email">email address:</label>
-    <input type="email">
-    <label for="password">password:</label>
-    <input type="password">
-</form>
-<h2>Register</h2>
-<label for="username">user name:</label>
-<input type="text">
-<label for="email">email address:</label>
-<input type="email">
-<label for="password">select your password:</label>
-<input type="password">
+<h1>To Do Or Not To Do</h1>
+<h2>...that is the question</h2>
+
+
+<?php
+
+
+if (isset($_SESSION['user'])) : ?>
+    <p>Welcome, <?= $_SESSION['user']['user_name'] . '!'; ?> </p>
+<?php endif ?>
+
+
+
 
 <?php require __DIR__ . '/views/footer.php'; ?>
