@@ -7,7 +7,6 @@ require __DIR__ . '/../autoload.php';
 // In this file we register a new user.
 
 if (isset($_POST)) {
-
     print_r($_POST);
 
     $user_name = trim($_POST['user_name']);
