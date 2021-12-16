@@ -1,5 +1,3 @@
-<?php ?>
-
 <footer>
 
     <p>Back to top</p>
