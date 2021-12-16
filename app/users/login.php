@@ -9,29 +9,21 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['email_address'], $_POST['password'])) {
     $email_address = trim($_POST['email_address']);
-    $password = $_POST['password'];
-
-    $statement = $database->prepare('SELECT * FROM users WHERE email_address = :email_address');
+    $statement = $database->prepare("SELECT * from users WHERE email_address = :email_address");
     $statement->bindParam(':email_address', $email_address, PDO::PARAM_STR);
 
     $statement->execute();
-
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if (!$user) {
-        redirect('../../login.php');
-        echo 'Something went wrong';
+    if ($user === false) {
+        redirect('/');
     }
-    if ($user) {
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user'] = [
-                "id" => $user['id'],
-                "user_name" => $user['user_name'],
-                "email_address" => $user['email_address']
-            ];
-            redirect('../../index.php');
-        } else {
-            redirect('../../login.php');
-        };
+    if (password_verify($_POST['password'], $user['password'])) {
+        $_SESSION['user'] = [
+            "id" => $user['id'],
+            "name" => $user['name'],
+            "email" => $user['email'],
+        ];
+        redirect('/index.php');
     }
 }

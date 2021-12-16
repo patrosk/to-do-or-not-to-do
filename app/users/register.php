@@ -6,14 +6,18 @@ require __DIR__ . '/../autoload.php';
 
 // In this file we register a new user.
 
-if (isset($_POST)) {
-    print_r($_POST);
+if (isset($_POST['user_name'], $_POST['email_address'], $_POST['password'])) {
 
     $user_name = trim($_POST['user_name']);
     $email_address = trim($_POST['email_address']);
     $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    //check if email address already exists: if-statement checking if username or email already exists in database
+    // if (condition) {
 
+    // }
+
+    //insert new user in database
     $statement = $database->prepare('INSERT INTO users
     (user_name, email_address, password)
     VALUES
@@ -25,11 +29,5 @@ if (isset($_POST)) {
 
     $statement->execute();
 
-    redirect('../../index.php');
+    redirect('/');
 }
-?>
-<!-- //     <p><?php echo $user_name; ?></p> -->
-<?php
-// }
-//
-?>
