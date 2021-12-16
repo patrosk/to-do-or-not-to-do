@@ -1,9 +1,8 @@
 <?php
 
 declare(strict_types=1);
+
 require __DIR__ . '/config.php';
-
-
 
 // Start the session engines.
 session_start();

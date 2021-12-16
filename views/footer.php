@@ -1,9 +1,5 @@
 <?php ?>
 
-
-
-
-
 <footer>
     <p>Back to top</p>
     <p>© Nema Vinkeloe Uuskyla 2022</p>
