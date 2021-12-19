@@ -1,6 +1,14 @@
-<?php require __DIR__ . '/views/header.php';
-require __DIR__ . '/views/navigation.php'; ?>
+<?php
 
-<h1>This is the Logged in Page</h1>
+if (isset($_SESSION['user'])) {
+    $name = $_SESSION['user']['name'];
+    return $name;
+}
 
-<?php require __DIR__ . '/views/footer.php';
+print_r($_SESSION);
+echo $name;
+
+function welcomeMessage($name)
+{
+    return 'Welcome, ' . $name . '!';
+}
