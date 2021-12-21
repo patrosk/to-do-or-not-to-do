@@ -54,7 +54,7 @@ function getImageUrl()
     $image = $statement->fetch(PDO::FETCH_ASSOC);
     $image_url = $image['image_url'];
 
-    if ($image_url === NULL) {
+    if ($image_url === null) {
         return '/images/rubber-duck.png';
     }
 

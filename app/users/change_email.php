@@ -5,9 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 //in this file we change the email address of a user
-
 if (isset($_POST['email_address'])) {
-
     $email_address = trim($_POST['email_address']);
     $user_id = $_SESSION['user']['id'];
 
