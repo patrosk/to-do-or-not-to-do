@@ -9,7 +9,7 @@ require __DIR__ . '../../../autoload.php';
 if (isset($_FILES['upload-avatar'])) {
     $tmp_name = $_FILES['upload-avatar']['tmp_name'];
     $filetype = pathinfo($_FILES['upload-avatar']['name'], PATHINFO_EXTENSION);
-    $filename = $_SESSION['user']['id'] . '-avatar.' . $filetype;
+    $filename = $_SESSION['user']['id'] . '_avatar.' . $filetype;
     $user_id = $_SESSION['user']['id'];
     move_uploaded_file($tmp_name, __DIR__ . '../../../../uploads/' . $filename);
 

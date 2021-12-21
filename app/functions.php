@@ -10,7 +10,7 @@ function redirect(string $path)
     exit;
 }
 
-function welcomeMessage()
+function welcome_message()
 {
     if (isset($_SESSION['user'])) {
         $name = $_SESSION['user']['name'];
@@ -18,7 +18,7 @@ function welcomeMessage()
     }
 }
 
-function showError()
+function show_error()
 {
     if (isset($_SESSION['errors'])) {
         foreach ($_SESSION['errors'] as $error) {
@@ -29,7 +29,7 @@ function showError()
     }
 }
 
-function showMessage()
+function show_message()
 {
     if (isset($_SESSION['messages'])) {
         foreach ($_SESSION['messages'] as $message) {
@@ -41,7 +41,7 @@ function showMessage()
     }
 }
 
-function getImageUrl()
+function get_image_url()
 {
     $database = new PDO(sprintf('sqlite:%s/database/database.db', __DIR__));
 
@@ -55,8 +55,24 @@ function getImageUrl()
     $image_url = $image['image_url'];
 
     if ($image_url === null) {
-        return '/images/rubber-duck.png';
+        return '/images/rubber_duck.png';
     }
 
     return '/uploads/' . $image_url;
+}
+
+function get_user_info(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare("SELECT * from users WHERE id = :id");
+    $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $user_info = [
+        'user_name' => $user['user_name'],
+        'email_address' => $user['email_address'],
+    ];
+    return $user_info;
 }

@@ -4,16 +4,18 @@ require __DIR__ . '/views/header.php';
 require __DIR__ . '/views/navigation.php'; ?>
 
 <div>
-    <?= showError() ?>
-</div>
-<div>
-    <?= showMessage() ?>
+    <?= show_error() ?>
+    <?= show_message() ?>
 </div>
 
-
+<ul>
+    <li>User Name: <?= get_user_info($database)['user_name'] ?></li>
+    <li>Email address: <?= get_user_info($database)['email_address'] ?></li>
+    <li>Completed tasks:</li>
+</ul>
 
 <div>
-    <img src="<?= getImageUrl() ?>" alt="">
+    <img src="<?= get_image_url() ?>" alt="">
 </div>
 <?php
 
