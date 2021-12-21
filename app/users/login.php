@@ -27,4 +27,5 @@ if (isset($_POST['email_address'], $_POST['password'])) {
 
         redirect('/index.php');
     }
+    redirect('/');
 }

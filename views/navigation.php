@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><?= $config['title'] ?></a>
+        <a class="navbar-brand" href="/index.php"><?= $config['title'] ?></a>
 
         <ul class="navbar-nav">
             <li class="nav-item">
