@@ -15,6 +15,7 @@ if (isset($_POST['title'])) {
     VALUES (:title, :user_id)');
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
 }
 
-redirect('/');
+redirect('/lists.php');

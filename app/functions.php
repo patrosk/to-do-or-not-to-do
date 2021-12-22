@@ -10,6 +10,14 @@ function redirect(string $path)
     exit;
 }
 
+function is_logged_in()
+{
+    if (isset($_SESSION['user'])) {
+        $user = $_SESSION['user'];
+        return $user;
+    }
+}
+
 function welcome_message()
 {
     if (isset($_SESSION['user'])) {
@@ -77,11 +85,15 @@ function get_user_info(object $database)
     ];
     return $user_info;
 }
-
-function is_logged_in()
+function get_lists(object $database)
 {
-    if (isset($_SESSION['user'])) {
-        $user = $_SESSION['user'];
-        return $user;
-    }
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare("SELECT * from lists WHERE user_id = :id");
+    $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $lists = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $lists;
 }
