@@ -7,10 +7,10 @@ require __DIR__ . '/../autoload.php';
 
 // In this file we login users.
 
-if (isset($_POST['email_address'], $_POST['password'])) {
-    $email_address = trim($_POST['email_address']);
-    $statement = $database->prepare("SELECT * from users WHERE email_address = :email_address");
-    $statement->bindParam(':email_address', $email_address, PDO::PARAM_STR);
+if (isset($_POST['email'], $_POST['password'])) {
+    $email = trim($_POST['email']);
+    $statement = $database->prepare("SELECT * from users WHERE email = :email");
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
 
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);
@@ -21,8 +21,8 @@ if (isset($_POST['email_address'], $_POST['password'])) {
     if (password_verify($_POST['password'], $user['password'])) {
         $_SESSION['user'] = [
             "id" => $user['id'],
-            "name" => $user['user_name'],
-            "email" => $user['email_address'],
+            "name" => $user['username'],
+            "email" => $user['email'],
         ];
 
         redirect('/index.php');

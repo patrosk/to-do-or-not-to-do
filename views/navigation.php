@@ -10,16 +10,28 @@
             <li class="nav-item">
                 <a class="nav-link" href="/about.php">About</a>
             </li>
-            <?php if (isset($_SESSION['user'])) : ?>
+
+            <?php if (is_logged_in()) : ?>
                 <li class="nav-item">
                     <a class="nav-link" href="../profile.php">Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../lists.php">Lists</a>
+                <li>
+                    <ul><a href="">Tasks</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/overview.php">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lists.php">Your lists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tasks.php">Your tasks</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/app/users/logout.php">Logout</a>
                 </li>
+
             <?php else : ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/login.php">Login</a>

@@ -71,8 +71,17 @@ function get_user_info(object $database)
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     $user_info = [
-        'user_name' => $user['user_name'],
-        'email_address' => $user['email_address'],
+        'username' => $user['username'],
+        'email' => $user['email'],
+        'id' => $user['id'],
     ];
     return $user_info;
+}
+
+function is_logged_in()
+{
+    if (isset($_SESSION['user'])) {
+        $user = $_SESSION['user'];
+        return $user;
+    }
 }

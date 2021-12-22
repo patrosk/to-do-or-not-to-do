@@ -14,10 +14,10 @@ require __DIR__ . '/views/navigation.php'; ?>
 
 <h2>Register</h2>
 <form action="/app/users/register.php" method="post">
-    <label for="user_name">user name:</label>
-    <input name="user_name" id="user_name" type="text">
-    <label for="email_address">email address:</label>
-    <input name="email_address" id="email_address" type="email">
+    <label for="username">user name:</label>
+    <input name="username" id="username" type="text">
+    <label for="email">email address:</label>
+    <input name="email" id="email" type="email">
     <label for="password">select your password:</label>
     <input name="password" id="password" type="password">
     <button type="submit">Register</button>

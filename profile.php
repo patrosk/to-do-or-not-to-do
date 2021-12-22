@@ -9,8 +9,8 @@ require __DIR__ . '/views/navigation.php'; ?>
 </div>
 
 <ul>
-    <li>User Name: <?= get_user_info($database)['user_name'] ?></li>
-    <li>Email address: <?= get_user_info($database)['email_address'] ?></li>
+    <li>Username: <?= get_user_info($database)['username'] ?></li>
+    <li>Email address: <?= get_user_info($database)['email'] ?></li>
     <li>Completed tasks:</li>
 </ul>
 
@@ -23,15 +23,15 @@ require __DIR__ . '/views/navigation.php'; ?>
 
 <div>Change your profile picture</div>
 <form action="/app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
-    <label for="upload-avatar">Upload your avatar image in PNG/JPG format</label>
-    <input type="file" name="upload-avatar" id="upload-avatar" accept=".png, .jpg, .jpeg">
+    <label for="avatar">Upload your avatar image in PNG/JPG format</label>
+    <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
     <button type="submit">Upload image</button>
 </form>
 
 <div>Change your email address</div>
 <form action="/app/users/change_email.php" method="post">
-    <label for="email_address">new email address:</label>
-    <input type="email" name="email_address" id="email_address">
+    <label for="email">new email address:</label>
+    <input type="email" name="email" id="email">
     <button type="submit">Change email address</button>
 </form>
 

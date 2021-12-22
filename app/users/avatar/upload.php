@@ -6,9 +6,9 @@ require __DIR__ . '../../../autoload.php';
 
 //in this file we upload an avatar of a user
 
-if (isset($_FILES['upload-avatar'])) {
-    $tmp_name = $_FILES['upload-avatar']['tmp_name'];
-    $filetype = pathinfo($_FILES['upload-avatar']['name'], PATHINFO_EXTENSION);
+if (isset($_FILES['avatar'])) {
+    $tmp_name = $_FILES['avatar']['tmp_name'];
+    $filetype = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
     $filename = $_SESSION['user']['id'] . '_avatar.' . $filetype;
     $user_id = $_SESSION['user']['id'];
     move_uploaded_file($tmp_name, __DIR__ . '../../../../uploads/' . $filename);
