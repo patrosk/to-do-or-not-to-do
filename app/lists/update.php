@@ -4,28 +4,19 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we update (modify) lists in the database.
+// In this file we update lists in the database.
+$list_id = $_GET['id'];
+$user_id = get_user_info($database)['id'];
 
-if (isset($_GET['id'])) {
-    $list = [
-        'id' => $_GET['id'],
-        'user_id' => $_SESSION['user']['id'],
-    ];
+if (isset($_POST['title'])) {
+    $trimmed_title = trim($_POST['title']);
+    $title = filter_var($trimmed_title, FILTER_SANITIZE_STRING);
 
-    redirect('/single_list.php?id=' . $list['id']);
-    // print_r($list);
+    $statement = $database->prepare("UPDATE lists SET title = :title WHERE id = :id AND user_id = :user_id");
+    $statement->bindParam(':id', $list_id, PDO::PARAM_INT);
+    $statement->bindParam(':title', $title, PDO::PARAM_STR);
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
 
-
-    // $id = $_GET['id'];
-    // $user_id = $_SESSION['user']['id'];
-
-    // $statement = $database->prepare("UPDATE lists SET title = :title WHERE user_id = :user_id AND id = :id");
-    // $statement->bindParam(':title', $title, PDO::PARAM_STR);
-    // $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    // $statement->bindParam(':id', $id, PDO::PARAM_INT);
-    // $statement->execute();
-
-    // $_SESSION['messages'][] = 'List updated!';
-
-    // redirect('/lists.php');
+    redirect('/single_list.php?id=' . $list_id);
 }
