@@ -3,6 +3,8 @@ require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
 require __DIR__ . '/views/navigation.php'; ?>
 
+<?= show_message() ?>
+
 <h2><a href="/lists.php">Your Lists</a></h2>
 
 <ul>
@@ -11,6 +13,12 @@ require __DIR__ . '/views/navigation.php'; ?>
     foreach ($lists as $list) : ?>
         <li>
             <?= $list['title'] ?>
+            <button>
+                <a href="/single_list.php?id=<?= $list['id']; ?>">Update </a>
+            </button>
+            <button>
+                <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
+            </button>
         </li>
     <?php endforeach ?>
 </ul>
