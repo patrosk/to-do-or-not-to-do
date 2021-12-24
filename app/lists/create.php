@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we create/insert new lists in the database.
+// In this file we create new lists in the database.
 if (isset($_POST['title'])) {
     $trimmed_title = trim($_POST['title']);
     $title = filter_var($trimmed_title, FILTER_SANITIZE_STRING);

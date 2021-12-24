@@ -22,4 +22,14 @@ foreach ($lists as $list) : ?>
     <button type="submit">Update title</button>
 </form>
 
+<form action="/app/tasks/create.php?id=<?= $id ?>" method="post" id="new_task">
+    <label for="name">Task name: </label>
+    <input name="name" id="name" type="text">
+    <label for="deadline">Deadline: </label>
+    <input name="deadline" id="deadline" type="date">
+    <button type="submit">Add task</button>
+</form>
+<label for="description">Description: </label>
+<textarea name="description" id="description" form="new_task"></textarea>
+
 <?php require __DIR__ . '/views/footer.php';

@@ -98,10 +98,3 @@ function get_lists(object $database)
 
     return $lists;
 }
-
-// function is_same($var_one, $var_two)
-// {
-//     if ($var_one === $var_two) {
-//         return true;
-//     }
-// }

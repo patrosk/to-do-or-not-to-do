@@ -8,6 +8,7 @@ require __DIR__ . '/../autoload.php';
 $list_id = $_GET['id'];
 $user_id = get_user_info($database)['id'];
 
+//change list title
 if (isset($_POST['title'])) {
     $trimmed_title = trim($_POST['title']);
     $title = filter_var($trimmed_title, FILTER_SANITIZE_STRING);
