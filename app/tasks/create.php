@@ -30,4 +30,4 @@ if (isset($_POST['name'], $_POST['deadline'], $_POST['description'])) {
     $statement->execute();
 }
 
-// redirect('/single_list.php?id=' . $list_id);
+redirect('/single_list.php?id=' . $list_id);
