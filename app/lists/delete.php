@@ -15,7 +15,12 @@ if (isset($_GET['id'])) {
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
 
-    $_SESSION['messages'][] = 'List deleted from your profile!';
+    $statement = $database->prepare("DELETE FROM tasks WHERE user_id = :user_id AND list_id = :id");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $_SESSION['messages'][] = 'List and tasks deleted from your profile!';
 
     redirect('/lists.php');
 }

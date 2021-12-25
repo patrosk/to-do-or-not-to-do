@@ -25,7 +25,7 @@ if (isset($_POST['name'], $_POST['deadline'], $_POST['description'])) {
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':description', $description, PDO::PARAM_STR);
     $statement->bindParam(':created_at', $created_at, PDO::PARAM_INT);
-    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_INT);
+    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
 
     $statement->execute();
 }

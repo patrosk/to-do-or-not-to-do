@@ -16,6 +16,14 @@ foreach ($lists as $list) : ?>
     <?php endif ?>
 <?php endforeach ?>
 
+<?php $tasks = get_tasks($database, $id);
+
+foreach ($tasks as $task) : ?>
+    <h4>Name: <?= $task['title'] ?></h4>
+    <p>Description: <?= $task['description'] ?></p>
+    <p>Deadline: <?= $task['deadline_at'] ?></p>
+<?php endforeach ?>
+
 <form action="/app/lists/update.php?id=<?= $id ?>" method="post">
     <label for="title">New title: </label>
     <input name="title" id="title" type="text">

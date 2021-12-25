@@ -55,7 +55,7 @@ function get_image_url()
 
     $user_id = $_SESSION['user']['id'];
 
-    $statement = $database->prepare("SELECT image_url from users WHERE id = :id");
+    $statement = $database->prepare("SELECT image_url FROM users WHERE id = :id");
     $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
 
     $statement->execute();
@@ -73,7 +73,7 @@ function get_user_info(object $database)
 {
     $user_id = $_SESSION['user']['id'];
 
-    $statement = $database->prepare("SELECT * from users WHERE id = :id");
+    $statement = $database->prepare("SELECT * FROM users WHERE id = :id");
     $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
     $statement->execute();
 
@@ -90,11 +90,26 @@ function get_lists(object $database)
 {
     $user_id = $_SESSION['user']['id'];
 
-    $statement = $database->prepare("SELECT * from lists WHERE user_id = :id");
+    $statement = $database->prepare("SELECT * FROM lists WHERE user_id = :id");
     $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
     $statement->execute();
 
     $lists = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $lists;
+}
+
+function get_tasks(object $database, $integer)
+{
+    $user_id = $_SESSION['user']['id'];
+    $list_id = $integer;
+
+    $statement = $database->prepare("SELECT * FROM tasks WHERE user_id = :user_id AND list_id = :list_id");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks;
 }
