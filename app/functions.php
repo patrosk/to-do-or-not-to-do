@@ -41,7 +41,6 @@ function show_message()
 {
     if (isset($_SESSION['messages'])) {
         foreach ($_SESSION['messages'] as $message) {
-            //this was needed for the errors but not for the messages??
             unset($_SESSION['messages']);
             return $message;
         }

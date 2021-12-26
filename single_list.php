@@ -9,6 +9,7 @@ require __DIR__ . '/views/navigation.php';
 $id = $_GET['id'];
 $user_id = $_SESSION['user']['id'];
 $lists = get_lists($database);
+$tasks = get_tasks($database, $id);
 
 foreach ($lists as $list) : ?>
     <?php if ($list['id'] == $id) : ?>
@@ -16,14 +17,20 @@ foreach ($lists as $list) : ?>
     <?php endif ?>
 <?php endforeach ?>
 
-<?php $tasks = get_tasks($database, $id);
-
+<?php
 foreach ($tasks as $task) : ?>
     <h4>Name: <?= $task['title'] ?></h4>
+    <button>
+        <a>Edit </a>
+    </button>
+    <button>
+        <a>Delete </a>
+    </button>
     <p>Description: <?= $task['description'] ?></p>
     <p>Deadline: <?= $task['deadline_at'] ?></p>
 <?php endforeach ?>
 
+<h3>Change list title</h3>
 <form action="/app/lists/update.php?id=<?= $id ?>" method="post">
     <label for="title">New title: </label>
     <input name="title" id="title" type="text">

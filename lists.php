@@ -14,7 +14,7 @@ require __DIR__ . '/views/navigation.php'; ?>
         <li>
             <?= $list['title'] ?>
             <button>
-                <a href="/single_list.php?id=<?= $list['id']; ?>">Update </a>
+                <a href="/single_list.php?id=<?= $list['id']; ?>">Edit </a>
             </button>
             <button>
                 <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
@@ -30,8 +30,6 @@ require __DIR__ . '/views/navigation.php'; ?>
     <button type="submit">Create List</button>
 </form>
 
-<h2>Task Deadlines</h2>
-
-<h3>Due Today!</h3>
+<h3>Due Date Tracker</h3>
 
 <?php require __DIR__ . '/views/footer.php';
