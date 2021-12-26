@@ -1,4 +1,6 @@
-<?php require __DIR__ . '/app/autoload.php'; ?>
+<?php
+
+require __DIR__ . '/app/autoload.php'; ?>
 
 <!-- This page functions as a placeholder. It holds the contents of the popup that will show
 when a user edits a task. -->

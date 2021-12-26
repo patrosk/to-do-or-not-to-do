@@ -7,15 +7,14 @@ require __DIR__ . '/../autoload.php';
 //in this file we update tasks in a list
 
 // If statement to enable users to modify one or several attributes of a task.
-if (
-    isset($_POST['title'], $_POST['deadline'], $_POST['description'])
-    || ($_POST['title'] && $_POST['deadline'])
-    || ($_POST['description'] && $_POST['deadline'])
-    || ($_POST['title'] && $_POST['description'])
-    || ($_POST['title'])
-    || ($_POST['deadline'])
-    || ($_POST['description'])
-);
+// if (isset($_POST['title'], $_POST['deadline'], $_POST['description'])
+//     || ($_POST['title'] && $_POST['deadline'])
+//     || ($_POST['description'] && $_POST['deadline'])
+//     || ($_POST['title'] && $_POST['description'])
+//     || ($_POST['title'])
+//     || ($_POST['deadline'])
+//     || ($_POST['description'])
+// );
 
 // -> starts the logic
 // Then you still have to write different if statements depending
