@@ -30,6 +30,7 @@ foreach ($tasks as $task) : ?>
     <button type="submit">Update title</button>
 </form>
 
+<h3>Add task to list</h3>
 <form action="/app/tasks/create.php?id=<?= $id ?>" method="post" id="new_task">
     <label for="name">Task name: </label>
     <input name="name" id="name" type="text">

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we delete lists in the database.
+// In this file we delete lists (including the tasks in the list) in the database.
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
