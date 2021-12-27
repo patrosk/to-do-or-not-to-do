@@ -10,7 +10,6 @@ $task_id = $_GET['task_id'];
 $user_id = $_SESSION['user']['id'];
 
 if ($list_id && $task_id) {
-
     $statement = $database->prepare("DELETE FROM tasks WHERE id = :task_id AND list_id = :list_id AND user_id = :user_id");
     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
     $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
