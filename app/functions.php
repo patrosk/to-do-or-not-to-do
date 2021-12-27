@@ -98,7 +98,7 @@ function get_lists(object $database)
     return $lists;
 }
 
-function get_tasks(object $database, $integer)
+function get_tasks_from_list(object $database, $integer)
 {
     $user_id = $_SESSION['user']['id'];
     $list_id = $integer;
@@ -106,6 +106,36 @@ function get_tasks(object $database, $integer)
     $statement = $database->prepare("SELECT * FROM tasks WHERE user_id = :user_id AND list_id = :list_id");
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks;
+}
+
+function get_tasks(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare("SELECT * FROM tasks
+    INNER JOIN lists
+    ON tasks.list_id = lists.id
+    WHERE tasks.user_id = :user_id ORDER BY tasks.deadline_at");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks;
+}
+
+function task_status(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare("SELECT * FROM tasks
+    WHERE user_id = :user_id ORDER BY tasks.deadline_at");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->execute();
 
     $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);

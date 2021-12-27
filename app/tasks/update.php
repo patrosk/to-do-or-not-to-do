@@ -12,8 +12,8 @@ $task_id = $_GET['task_id'];
 
 //trim and sanitize user input
 if (isset($_POST['name'])) {
-    $trimmed_title = trim($_POST['name']);
-    $title = filter_var($trimmed_title, FILTER_SANITIZE_STRING);
+    $trimmed_name = trim($_POST['name']);
+    $name = filter_var($trimmed_name, FILTER_SANITIZE_STRING);
 }
 
 if (isset($_POST['description'])) {
@@ -26,14 +26,14 @@ if (isset($_POST['deadline'])) {
 }
 
 //if statements to check which attributes have been given new values and then update them in the database
-if ($title) {
+if ($name) {
     $statement = $database->prepare(
         'UPDATE tasks
-    SET title = :title
+    SET name = :name
     WHERE user_id = :user_id AND list_id = :list_id AND id = :task_id'
     );
 
-    $statement->bindParam(':title', $title, PDO::PARAM_STR);
+    $statement->bindParam(':name', $name, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);

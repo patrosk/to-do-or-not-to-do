@@ -12,7 +12,7 @@ when a user edits a task. -->
 
 <form action="/app/tasks/update.php?list_id=<?= $list_id ?>&task_id=<?= $task_id ?>" method="post" id="edit_task">
     <label for="name">Task Name:</label>
-    <input name="name" id="name" type="text" placeholder="New title">
+    <input name="name" id="name" type="text" placeholder="New task name">
     <label for="deadline">Deadline:</label>
     <input name="deadline" id="deadline" type="date">
     <button type="submit">Update task</button>
