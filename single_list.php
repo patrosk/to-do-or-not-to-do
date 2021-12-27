@@ -21,10 +21,10 @@ foreach ($lists as $list) : ?>
 foreach ($tasks as $task) : ?>
     <h4>Name: <?= $task['title'] ?></h4>
     <button>
-        <a>Edit </a>
+        <a href="/popup.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit</a>
     </button>
     <button>
-        <a>Delete </a>
+        <a>Delete</a>
     </button>
     <p>Description: <?= $task['description'] ?></p>
     <p>Deadline: <?= $task['deadline_at'] ?></p>
