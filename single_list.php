@@ -11,6 +11,8 @@ $user_id = $_SESSION['user']['id'];
 $lists = get_lists($database);
 $tasks = get_tasks($database, $id);
 
+echo show_message();
+
 foreach ($lists as $list) : ?>
     <?php if ($list['id'] == $id) : ?>
         <h2><?= $list['title'] ?></h2>
