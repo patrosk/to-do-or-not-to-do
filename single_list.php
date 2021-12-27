@@ -26,7 +26,7 @@ foreach ($tasks as $task) : ?>
         <a href="/popup.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit</a>
     </button>
     <button>
-        <a>Delete</a>
+        <a href="/app/tasks/delete.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Delete</a>
     </button>
     <p>Description: <?= $task['description'] ?></p>
     <p>Deadline: <?= $task['deadline_at'] ?></p>

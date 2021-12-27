@@ -44,4 +44,12 @@ require __DIR__ . '/views/navigation.php'; ?>
     <button type="submit">Change password</button>
 </form>
 
+<div>Delete profile
+    <p>Delete your profile and all lists and tasks along with your
+        profile picture and user information.
+        This cannot be undone!
+    </p>
+    <button type="button"><a href="/app/users/delete.php?id=<?= $_SESSION['user']['id'] ?>"> Delete profile</a></button>
+</div>
+
 <?php require __DIR__ . '/views/footer.php';
