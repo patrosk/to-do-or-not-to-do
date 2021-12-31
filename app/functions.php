@@ -117,10 +117,21 @@ function get_tasks(object $database)
 {
     $user_id = $_SESSION['user']['id'];
 
-    $statement = $database->prepare("SELECT * FROM tasks
-    INNER JOIN lists
+    // $statement = $database->prepare("SELECT * FROM tasks
+    // INNER JOIN lists
+    // ON tasks.list_id = lists.id
+    // WHERE tasks.user_id = :user_id ORDER BY tasks.deadline_at");
+    // $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    // $statement->execute();
+
+    $statement = $database->prepare(
+        "SELECT tasks.id, tasks.list_id, tasks.user_id, tasks.name,
+        tasks.description, tasks.deadline_at, tasks.completed_at, lists.title
+    FROM tasks
+    LEFT OUTER JOIN lists
     ON tasks.list_id = lists.id
-    WHERE tasks.user_id = :user_id ORDER BY tasks.deadline_at");
+    WHERE tasks.user_id = :user_id ORDER BY tasks.deadline_at"
+    );
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->execute();
 

@@ -29,7 +29,7 @@ $tasks = get_tasks($database); ?>
                     $status_uncompleted = 'checked';
                 } ?>
 
-                <form action="/app/tasks/status.php?origin=tasks.php" method="post">
+                <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
                     <label for="completed">completed</label>
                     <input name="status" id="completed" value="completed" type="radio" <?= $status_completed ?>>
                     <label for="uncompleted">uncompleted</label>

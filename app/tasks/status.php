@@ -6,23 +6,31 @@ require __DIR__ . '/../autoload.php';
 
 //in this file we mark tasks as completed/uncompleted and add completed_at date in the database
 
-//check task status on live page
+print_r($_GET);
 
-print_r($_POST);
+$user_id = get_user_info($database)['id'];
+$list_id = $_GET['list_id'];
+$task_id = $_GET['task_id'];
+
+//check task status on live page
 
 if ($_POST['status'] === "completed") {
     $completed = $_POST['status'];
+
+    // $statement = $database->prepare('UPDATE tasks SET completed_at = :date
+    // WHERE id = :task_id AND list_id = :list_id AND user_id = :user_id');
+
     $_SESSION['messages'][] = 'task completed!';
 } else {
     $uncompleted = $_POST['status'];
     $_SESSION['messages'][] = 'task uncompleted!';
 }
 
-if ($_GET['origin'] === "tasks.php") {
-    redirect('/tasks.php');
-} else {
-    redirect('/single_list.php?id=' . $_GET['id']);
-}
+// if ($_GET['origin'] === "tasks.php") {
+//     redirect('/tasks.php');
+// } else {
+//     redirect('/single_list.php?id=' . $_GET['id']);
+// }
 
 //check box = add completed_at value:
 // $created_at = date("Ymd");
