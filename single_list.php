@@ -21,7 +21,6 @@ foreach ($lists as $list) : ?>
 
 <?php
 foreach ($tasks as $task) : ?>
-
     <?php
     if (isset($task['completed_at'])) {
         $status_completed = 'checked';
