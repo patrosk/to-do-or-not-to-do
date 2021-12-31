@@ -28,8 +28,7 @@ if (isset($_POST['deadline'])) {
 //if statements to check which attributes have been given new values and then update them in the database
 if ($name) {
     $statement = $database->prepare(
-        'UPDATE tasks
-    SET name = :name
+        'UPDATE tasks SET name = :name
     WHERE user_id = :user_id AND list_id = :list_id AND id = :task_id'
     );
 

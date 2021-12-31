@@ -21,6 +21,16 @@ foreach ($lists as $list) : ?>
 
 <?php
 foreach ($tasks as $task) : ?>
+
+    <?php
+    if (isset($task['completed_at'])) {
+        $status_completed = 'checked';
+        $status_uncompleted = '';
+    } else {
+        $status_completed = '';
+        $status_uncompleted = 'checked';
+    } ?>
+
     <h4>Name: <?= $task['name'] ?></h4>
     <button>
         <a href="/popup.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit</a>
@@ -33,13 +43,12 @@ foreach ($tasks as $task) : ?>
     <p>Status:</p>
     <form action="/app/tasks/status.php?id=<?= $id ?>" method="post">
         <label for="completed">completed</label>
-        <input name="status" id="completed" value="completed" type="radio">
+        <input name="status" id="completed" value="completed" type="radio" <?= $status_completed ?>>
         <label for="uncompleted">uncompleted</label>
-        <input name="status" id="uncompleted" value="uncompleted" type="radio">
+        <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status_uncompleted ?>>
         <button type="submit">Update</button>
     </form>
-    <!-- add function to check if task is completed
-        or not - prefill that radio button checked="checked"-->
+
 <?php endforeach ?>
 
 <h3>Change list title</h3>

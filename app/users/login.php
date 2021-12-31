@@ -16,6 +16,8 @@ if (isset($_POST['email'], $_POST['password'])) {
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if ($user === false) {
+
+        $_SESSION['errors'][] = "Ooops! Something went wrong. You've entered an incorrect email address or password.";
         redirect('/');
     }
     if (password_verify($_POST['password'], $user['password'])) {
@@ -27,5 +29,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
         redirect('/index.php');
     }
+
+    $_SESSION['errors'][] = "Ooops! Something went wrong. You've entered an incorrect email address or password.";
     redirect('/');
 }

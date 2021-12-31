@@ -20,12 +20,20 @@ $tasks = get_tasks($database); ?>
                 <?= $task['deadline_at'] ?><br>
                 Status:
 
-                <!-- the id=0 distinguishes this form from the form in single_list, in order to put the right redirect -->
+                <?php
+                if (isset($task['completed_at'])) {
+                    $status_completed = 'checked';
+                    $status_uncompleted = '';
+                } else {
+                    $status_completed = '';
+                    $status_uncompleted = 'checked';
+                } ?>
+
                 <form action="/app/tasks/status.php?origin=tasks.php" method="post">
                     <label for="completed">completed</label>
-                    <input name="status" id="completed" value="completed" type="radio">
+                    <input name="status" id="completed" value="completed" type="radio" <?= $status_completed ?>>
                     <label for="uncompleted">uncompleted</label>
-                    <input name="status" id="uncompleted" value="uncompleted" type="radio">
+                    <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status_uncompleted ?>>
                     <button type="submit">Update</button>
                     <!-- add function to check if task is completed
                     or not - prefill that radio button checked="checked"-->
