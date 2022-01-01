@@ -10,8 +10,27 @@ $tasks = get_tasks($database); ?>
 <h3><a href="/lists.php">Your lists</a></h3>
 <h4>Number of lists:</h4>
 
+<?php
+$lists = get_lists($database);
+$list_count = count($lists);
+?>
+
+<?= $list_count  ?>
+
 <h3><a href="/tasks.php">Your tasks</a></h3>
 <h4>Number of tasks:</h4>
+
+<?php
+$tasks = get_tasks($database);
+$task_count = count($tasks);
+$task_status = count_tasks($tasks);
+$completed_count = count($task_status['completed']);
+$uncompleted_count = count($task_status['uncompleted']);
+?>
+
+Total: <?= $task_count ?><br>
+Completed: <?= $completed_count ?><br>
+Uncompleted: <?= $uncompleted_count ?><br>
 
 <h3>Due Date Tracker</h3>
 
@@ -21,12 +40,15 @@ $tasks = get_tasks($database); ?>
         foreach ($tasks as $task) :
             $name = $task['name'];
             $deadline_at = $task['deadline_at'];
-            $list = $task['title'];
-            $list_id = $task['list_id'];
-            $task_id = $task['id']; ?>
+        ?>
             <li>
                 <?= $deadline_at ?><br>
-                <a href="/single_task.php?list_id=<?= $list_id ?>&task_id=<?= $task_id ?>"><?= $name ?></a><br>
+                <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a><br>
+                <?php if (isset($task['completed_at'])) : ?>
+                    Completed!
+                <?php else : ?>
+                    Uncompleted!
+                <?php endif ?>
             </li>
 
 

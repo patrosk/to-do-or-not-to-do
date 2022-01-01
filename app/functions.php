@@ -98,10 +98,9 @@ function get_lists(object $database)
     return $lists;
 }
 
-function get_tasks_from_list(object $database, $integer)
+function get_tasks_from_list(object $database, $list_id)
 {
     $user_id = $_SESSION['user']['id'];
-    $list_id = $integer;
 
     $statement = $database->prepare("SELECT * FROM tasks WHERE user_id = :user_id AND list_id = :list_id");
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
@@ -166,4 +165,16 @@ function task_status($task)
     }
 
     return $status;
+}
+
+function count_tasks($tasks)
+{
+    foreach ($tasks as $task) {
+        if (isset($task['completed_at'])) {
+            $task_count['completed'][] = $task['name'];
+        } else {
+            $task_count['uncompleted'][] = $task['name'];
+        }
+    }
+    return $task_count;
 }
