@@ -6,6 +6,7 @@ require __DIR__ . '/views/navigation.php'; ?>
 <div>
     <?= show_error() ?>
     <?= show_message() ?>
+    <?= welcome_message() ?>
 </div>
 
 <ul>

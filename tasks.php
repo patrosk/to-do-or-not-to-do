@@ -9,7 +9,7 @@ $tasks = get_tasks($database); ?>
 
 <p><?= show_message() ?></p>
 
-<h2><a href="/tasks.php">Your Tasks</a></h2>
+<h2>Your Tasks</h2>
 
 <div>
     <ul>
@@ -20,10 +20,10 @@ $tasks = get_tasks($database); ?>
                 <?= $task['deadline_at'] ?><br>
 
                 <button>
-                    <a href="/edit_task.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+                    <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
                 </button>
                 <button>
-                    <a href="/app/tasks/delete.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Delete task</a>
+                    <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
                 </button>
 
                 <br>Status:

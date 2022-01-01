@@ -133,6 +133,28 @@ function get_tasks(object $database)
     return $tasks;
 }
 
+function get_single_task(object $database, $list_id, $task_id)
+{
+    $user_id = $_SESSION['user']['id'];
+
+    $statement = $database->prepare(
+        "SELECT tasks.id, tasks.list_id, tasks.user_id, tasks.name,
+        tasks.description, tasks.deadline_at, tasks.completed_at, lists.title
+    FROM tasks
+    LEFT OUTER JOIN lists
+    ON tasks.list_id = lists.id
+    WHERE tasks.user_id = :user_id AND tasks.id = :task_id AND tasks.list_id = :list_id"
+    );
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $task = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $task;
+}
+
 function task_status($task)
 {
     if (isset($task['completed_at'])) {

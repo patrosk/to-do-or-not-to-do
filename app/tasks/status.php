@@ -39,6 +39,8 @@ if ($_POST['status'] === "completed") {
 
 if ($_GET['origin'] === "tasks.php") {
     redirect('/tasks.php');
+} elseif ($_GET['origin'] === "single_task.php") {
+    redirect('/single_task.php?list_id=' . $list_id . '&task_id=' . $task_id);
 } else {
     redirect('/single_list.php?id=' . $list_id);
 }

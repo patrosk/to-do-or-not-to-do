@@ -5,7 +5,7 @@ require __DIR__ . '/views/navigation.php'; ?>
 
 <?= show_message() ?>
 
-<h2><a href="/lists.php">Your Lists</a></h2>
+<h2>Your Lists</h2>
 
 <ul>
     <?php
@@ -29,7 +29,5 @@ require __DIR__ . '/views/navigation.php'; ?>
     <input name="title" id="title" type="text">
     <button type="submit">Create List</button>
 </form>
-
-<h3>Due Date Tracker</h3>
 
 <?php require __DIR__ . '/views/footer.php';
