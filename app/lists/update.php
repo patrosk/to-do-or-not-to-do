@@ -18,6 +18,5 @@ if (isset($_POST['title'])) {
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->execute();
-
-    redirect('/single_list.php?id=' . $list_id);
 }
+redirect('/single_list.php?id=' . $list_id);

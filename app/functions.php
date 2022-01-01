@@ -117,13 +117,6 @@ function get_tasks(object $database)
 {
     $user_id = $_SESSION['user']['id'];
 
-    // $statement = $database->prepare("SELECT * FROM tasks
-    // INNER JOIN lists
-    // ON tasks.list_id = lists.id
-    // WHERE tasks.user_id = :user_id ORDER BY tasks.deadline_at");
-    // $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    // $statement->execute();
-
     $statement = $database->prepare(
         "SELECT tasks.id, tasks.list_id, tasks.user_id, tasks.name,
         tasks.description, tasks.deadline_at, tasks.completed_at, lists.title
@@ -140,16 +133,15 @@ function get_tasks(object $database)
     return $tasks;
 }
 
-function task_status(object $database)
+function task_status($task)
 {
-    $user_id = $_SESSION['user']['id'];
+    if (isset($task['completed_at'])) {
+        $status['completed'] = 'checked';
+        $status['uncompleted'] = '';
+    } else {
+        $status['completed'] = '';
+        $status['uncompleted'] = 'checked';
+    }
 
-    $statement = $database->prepare("SELECT * FROM tasks
-    WHERE user_id = :user_id ORDER BY tasks.deadline_at");
-    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $statement->execute();
-
-    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    return $tasks;
+    return $status;
 }

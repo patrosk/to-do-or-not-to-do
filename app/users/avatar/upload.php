@@ -17,6 +17,5 @@ if (isset($_FILES['avatar'])) {
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->bindParam(':image_url', $filename, PDO::PARAM_STR);
     $statement->execute();
-
-    redirect('/profile.php');
 }
+redirect('/profile.php');

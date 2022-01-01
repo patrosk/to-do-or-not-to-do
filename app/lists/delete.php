@@ -21,6 +21,5 @@ if (isset($_GET['id'])) {
     $statement->execute();
 
     $_SESSION['messages'][] = 'List and tasks deleted from your profile!';
-
-    redirect('/lists.php');
 }
+redirect('/lists.php');

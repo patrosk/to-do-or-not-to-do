@@ -17,6 +17,5 @@ if ($list_id && $task_id) {
     $statement->execute();
 
     $_SESSION['messages'][] = 'Task deleted from list!';
-
-    redirect('/single_list.php?id=' . $list_id);
 }
+redirect('/single_list.php?id=' . $list_id);

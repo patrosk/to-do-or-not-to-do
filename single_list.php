@@ -21,31 +21,25 @@ foreach ($lists as $list) : ?>
 
 <?php
 foreach ($tasks as $task) : ?>
-    <?php
-    if (isset($task['completed_at'])) {
-        $status_completed = 'checked';
-        $status_uncompleted = '';
-    } else {
-        $status_completed = '';
-        $status_uncompleted = 'checked';
-    } ?>
+
+    <?php $status = task_status($task); ?>
 
     <h4>Name: <?= $task['name'] ?></h4>
     <button>
-        <a href="/popup.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit</a>
+        <a href="/edit_task.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit task</a>
     </button>
     <button>
-        <a href="/app/tasks/delete.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Delete</a>
+        <a href="/app/tasks/delete.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Delete task</a>
     </button>
     <p>Description: <?= $task['description'] ?></p>
     <p>Deadline: <?= $task['deadline_at'] ?></p>
     <p>Status:</p>
     <form action="/app/tasks/status.php?list_id=<?= $id ?>&task_id=<?= $task['id'] ?>" method="post">
         <label for="completed">completed</label>
-        <input name="status" id="completed" value="completed" type="radio" <?= $status_completed ?>>
+        <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
         <label for="uncompleted">uncompleted</label>
-        <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status_uncompleted ?>>
-        <button type="submit">Update</button>
+        <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+        <button type="submit">Update status</button>
     </form>
 
 <?php endforeach ?>
