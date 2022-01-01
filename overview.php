@@ -36,11 +36,9 @@ Uncompleted: <?= $uncompleted_count ?><br>
 
 <div>
     <ul>
-        <?php
-        foreach ($tasks as $task) :
+        <?php foreach ($tasks as $task) :
             $name = $task['name'];
-            $deadline_at = $task['deadline_at'];
-        ?>
+            $deadline_at = $task['deadline_at']; ?>
             <li>
                 <?= $deadline_at ?><br>
                 <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a><br>
