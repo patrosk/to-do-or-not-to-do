@@ -21,7 +21,6 @@ foreach ($lists as $list) : ?>
 
 <?php
 foreach ($tasks as $task) : ?>
-
     <?php $status = task_status($task); ?>
 
     <h4>Name: <?= $task['name'] ?></h4>
