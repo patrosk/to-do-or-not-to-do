@@ -64,7 +64,7 @@ if ($deadline_at) {
     WHERE user_id = :user_id AND list_id = :list_id AND id = :task_id'
     );
 
-    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_INT);
+    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
