@@ -35,8 +35,6 @@ $tasks = get_tasks($database); ?>
                     <label for="uncompleted">uncompleted</label>
                     <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status_uncompleted ?>>
                     <button type="submit">Update</button>
-                    <!-- add function to check if task is completed
-                    or not - prefill that radio button checked="checked"-->
                 </form>
 
             </li><br>

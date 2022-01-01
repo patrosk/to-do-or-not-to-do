@@ -33,8 +33,8 @@ if ($_POST['status'] === "completed") {
 // }
 
 //check box = add completed_at value:
-// $created_at = date("Ymd");
-// $statement->bindParam(':created_at', $created_at, PDO::PARAM_INT);
+// $completed_at = date("Ymd");
+// $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_INT);
 
 //check task status in database
 
@@ -42,10 +42,8 @@ if ($_POST['status'] === "completed") {
 // foreach ($tasks as $task) {
 //     if (isset($task['completed_at'])) {
 //         echo 'hello';
-//         $status = 'checked';
 //     } else {
 //         echo 'not completed yet!';
-//         $status = 'false';
 //     }
 // }
 
