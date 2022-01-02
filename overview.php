@@ -42,6 +42,13 @@ Uncompleted: <?= $uncompleted_count ?><br>
             <li>
                 <?= $deadline_at ?><br>
                 <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a><br>
+                <?php
+                if ($deadline_at === date('Y-m-d')) : ?>
+                    Due today!<br>
+                <?php endif ?>
+                <?php if ($deadline_at < date('Y-m-d')) : ?>
+                    Deadline passed!<br>
+                <?php endif ?>
                 <?php if (isset($task['completed_at'])) : ?>
                     Completed!
                 <?php else : ?>

@@ -15,8 +15,8 @@ $tasks = get_tasks($database); ?>
     <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
-                <?= $task['name'] ?><br>
-                (<?= $task['title'] ?>)<br>
+                <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
+                (<a href="/single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a>)<br>
                 <?= $task['deadline_at'] ?><br>
 
                 <button>
