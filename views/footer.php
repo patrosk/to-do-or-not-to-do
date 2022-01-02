@@ -1,3 +1,4 @@
+</main>
 <footer>
 
     <p>Back to top</p>

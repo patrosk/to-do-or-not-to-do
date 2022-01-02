@@ -2,6 +2,60 @@
   box-sizing: border-box;
 }
 
+:root {
+  --whiteish: #f9f3ed;
+  --creme: #e9dcc9;
+  --light-orange: #f4a84d;
+  --bright-orange: #ff9900;
+  --dark-orange: #df5e00;
+  --blackish: #252423;
+}
+
 body {
   margin: 0;
+  font-size: 18px;
+  font-family: 'Quicksand';
+}
+
+@font-face {
+  font-family: 'Amatic';
+  src: url('/assets/styles/fonts/AmaticSC-Bold.woff2') format('woff2'),
+    url('/assets/styles/fonts/AmaticSC-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/assets/styles/fonts/Quicksand-Regular.woff2') format('woff2'),
+    url('/assets/styles/fonts/Quicksand-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--creme);
+    color: var(--blackish);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--blackish);
+    color: var(--whiteish);
+  }
+}
+
+main,
+footer {
+  padding: 30px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Amatic';
 }

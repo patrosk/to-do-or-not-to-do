@@ -132,7 +132,7 @@ function get_tasks(object $database)
     return $tasks;
 }
 
-function get_single_task(object $database, $list_id, $task_id)
+function get_single_task(PDO $database, $list_id, $task_id)
 {
     $user_id = $_SESSION['user']['id'];
 

@@ -1,0 +1,40 @@
+nav {
+  background-color: var(--light-orange);
+  width: 100vw;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+.title {
+  text-decoration: none;
+  font-family: 'Amatic';
+  font-size: 42px;
+  color: var(--blackish);
+}
+.dropbtn {
+  all: unset;
+}
+.dropdown {
+  display: flex;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger div {
+  height: 5px;
+  width: 30px;
+  background-color: var(--blackish);
+  border-radius: 6px;
+}
+nav ul {
+  list-style: none;
+}
+.dropdown-content {
+  display: none;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
