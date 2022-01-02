@@ -34,6 +34,7 @@ if (isset($_POST['name'], $_POST['deadline'], $_POST['description'])) {
 
         redirect('/single_list.php?id=' . $list_id);
     }
+
     //create task without list
     else {
         $trimmed_name = trim($_POST['name']);
