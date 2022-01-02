@@ -15,8 +15,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../profile.php">Profile</a>
                 </li>
-                <li>
-                    <ul><a href="">Tasks</a>
+                <li>Tasks
+                    <ul>
                         <li class="nav-item">
                             <a class="nav-link" href="/overview.php">Overview</a>
                         </li>

@@ -9,10 +9,19 @@ require __DIR__ . '/views/navigation.php'; ?>
     <?= welcome_message() ?>
 </div>
 
+<?php
+$lists = get_lists($database);
+$list_count = count($lists);
+$tasks = get_tasks($database);
+$task_status = count_tasks($tasks);
+$completed_count = count($task_status['completed']);
+?>
+
 <ul>
     <li>Username: <?= get_user_info($database)['username'] ?></li>
     <li>Email address: <?= get_user_info($database)['email'] ?></li>
-    <li>Completed tasks:</li>
+    <li>Number of lists: <?= $list_count ?></li>
+    <li>Completed tasks: <?= $completed_count ?></li>
 </ul>
 
 <div>
