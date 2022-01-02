@@ -12,7 +12,7 @@ require __DIR__ . '/views/navigation.php'; ?>
     $lists = get_lists($database);
     foreach ($lists as $list) : ?>
         <li>
-            <?= $list['title'] ?>
+            <?= $list['title'] ?><br>
             <button>
                 <a href="/single_list.php?id=<?= $list['id']; ?>">Edit </a>
             </button>

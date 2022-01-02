@@ -5,34 +5,28 @@ require __DIR__ . '/views/navigation.php'; ?>
 
 <?php
 $user_id = $_SESSION['user']['id'];
-$tasks = get_tasks($database); ?>
-
-<h3><a href="/lists.php">Your lists</a></h3>
-<h4>Number of lists:</h4>
-
-<?php
+$tasks = get_tasks($database);
 $lists = get_lists($database);
 $list_count = count($lists);
-?>
-
-<?= $list_count  ?>
-
-<h3><a href="/tasks.php">Your tasks</a></h3>
-<h4>Number of tasks:</h4>
-
-<?php
 $tasks = get_tasks($database);
 $task_count = count($tasks);
 $task_status = count_tasks($tasks);
 $completed_count = count($task_status['completed']);
-$uncompleted_count = count($task_status['uncompleted']);
-?>
+$uncompleted_count = count($task_status['uncompleted']); ?>
+
+<h2><a href="/lists.php">Your lists</a></h2>
+<h4>Number of lists:</h4>
+
+<?= $list_count  ?>
+
+<h2><a href="/tasks.php">Your tasks</a></h2>
+<h4>Number of tasks:</h4>
 
 Total: <?= $task_count ?><br>
 Completed: <?= $completed_count ?><br>
 Uncompleted: <?= $uncompleted_count ?><br>
 
-<h3>Due Date Tracker</h3>
+<h2>Due Date Tracker</h2>
 
 <div>
     <ul>
