@@ -169,6 +169,11 @@ function task_status($task)
 
 function count_tasks($tasks)
 {
+    $task_count = array(
+        'completed' => [],
+        'uncompleted' => [],
+    );
+
     foreach ($tasks as $task) {
         if (isset($task['completed_at'])) {
             $task_count['completed'][] = $task['name'];

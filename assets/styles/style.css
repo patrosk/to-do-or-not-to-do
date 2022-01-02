@@ -1,3 +1,19 @@
+.heading {
+  text-align: center;
+  font-size: 54px;
+}
+.slogan {
+  text-align: center;
+  font-size: 36px;
+}
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-buttons button {
+  all: unset;
+}
 img {
   width: 100%;
 }

@@ -11,8 +11,12 @@ $list_count = count($lists);
 $tasks = get_tasks($database);
 $task_count = count($tasks);
 $task_status = count_tasks($tasks);
-$completed_count = count($task_status['completed']);
-$uncompleted_count = count($task_status['uncompleted']); ?>
+
+if (isset($task_status)) {
+    $completed_count = count($task_status['completed']);
+    $uncompleted_count = count($task_status['uncompleted']);
+}
+?>
 
 <h2><a href="/lists.php">Your lists</a></h2>
 <h4>Number of lists:</h4>
