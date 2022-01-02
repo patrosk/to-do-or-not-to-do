@@ -33,10 +33,8 @@ if (isset($_POST['name'], $_POST['deadline'], $_POST['description'])) {
         $statement->execute();
 
         redirect('/single_list.php?id=' . $list_id);
-    }
-
-    //create task without list
-    else {
+    } else {
+        //create task without list
         $trimmed_name = trim($_POST['name']);
         $name = filter_var($trimmed_name, FILTER_SANITIZE_STRING);
         $deadline_at = $_POST['deadline'];
