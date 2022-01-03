@@ -13,6 +13,24 @@
 }
 .home-buttons button {
   all: unset;
+  height: 50px;
+  width: 150px;
+  background-color: var(--bright-orange);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: 0.5s ease;
+}
+.home-buttons button:hover {
+  background-color: var(--dark-orange);
+}
+.home-buttons a {
+  text-decoration: none;
+  font-family: 'Amatic';
+  color: var(--blackish);
+  font-size: 30px;
 }
 img {
   width: 100%;

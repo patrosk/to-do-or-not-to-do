@@ -15,14 +15,14 @@ $task_id = $_GET['task_id'];
 //check task status from live page and update completed_at column in database. If completed,
 // the completed_at is set to today, if uncompleted, the completed_at is set to null.
 if ($_POST['status'] === "completed") {
-    $completed_at = date('Ymd');
+    $completed_at = date('Y-m-d');
 
     $statement = $database->prepare('UPDATE tasks SET completed_at = :completed_at
     WHERE id = :task_id AND list_id = :list_id AND user_id = :user_id');
     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
     $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_INT);
+    $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_STR);
     $statement->execute();
 
     $_SESSION['messages'][] = 'Task completed!';
