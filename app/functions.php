@@ -68,7 +68,7 @@ function get_image_url()
     return '/uploads/' . $image_url;
 }
 
-function get_user_info(object $database)
+function get_user_info(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
 
@@ -85,7 +85,7 @@ function get_user_info(object $database)
     return $user_info;
 }
 
-function get_lists(object $database)
+function get_lists(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
 
@@ -98,7 +98,7 @@ function get_lists(object $database)
     return $lists;
 }
 
-function get_tasks_from_list(object $database, $list_id)
+function get_tasks_from_list(PDO $database, $list_id)
 {
     $user_id = $_SESSION['user']['id'];
 
@@ -112,7 +112,7 @@ function get_tasks_from_list(object $database, $list_id)
     return $tasks;
 }
 
-function get_tasks(object $database)
+function get_tasks(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
 
@@ -154,7 +154,7 @@ function get_single_task(PDO $database, $list_id, $task_id)
     return $task;
 }
 
-function get_tasks_due_today(object $database)
+function get_tasks_due_today(PDO $database)
 {
     $user_id = $_SESSION['user']['id'];
     $deadline_at = date('Y-m-d');

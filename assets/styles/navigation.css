@@ -2,6 +2,8 @@ nav {
   background-color: var(--light-orange);
   width: 100vw;
   height: 110px;
+}
+.navbar {
   display: flex;
   justify-content: space-between;
   padding: 25px;
@@ -12,16 +14,16 @@ nav {
   font-size: 42px;
   color: var(--blackish);
 }
-.dropbtn {
-  all: unset;
-}
-.dropdown {
-  display: flex;
+.dropdown-button {
+  border: none;
+  background-color: transparent;
 }
 .hamburger {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  position: relative;
+  padding-right: 30px;
 }
 .hamburger div {
   height: 5px;
@@ -31,10 +33,37 @@ nav {
 }
 nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-top: 12px;
+  gap: 10px;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .dropdown-content {
+  padding: 35px;
+  text-align: end;
+  background-color: var(--light-orange);
   display: none;
+  animation: slideDown 300ms ease-in-out forwards;
 }
-.dropdown:hover .dropdown-content {
+.dropdown-button:hover + .dropdown-content {
   display: block;
 }
