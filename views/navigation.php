@@ -5,11 +5,12 @@
 
             <div class="dropdown">
                 <button class="dropdown-button">
-                    <div class="hamburger">
+                    <span class="hamburger">
+                        <span class="hamburger-inner"></span>
+                        <!-- <div></div>
                         <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
+                        <div></div> -->
+                    </span>
                 </button>
                 <ul class="dropdown-content">
                     <li class="nav-item">

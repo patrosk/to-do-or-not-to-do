@@ -17,19 +17,49 @@ nav {
 .dropdown-button {
   border: none;
   background-color: transparent;
-}
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  position: relative;
   padding-right: 30px;
 }
-.hamburger div {
-  height: 5px;
+.hamburger {
+  position: relative;
   width: 30px;
+  height: 25px;
+  display: inline-block;
+}
+.hamburger-inner {
+  display: block;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 30px;
+  height: 5px;
   background-color: var(--blackish);
   border-radius: 6px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: '';
+  display: block;
+}
+.hamburger-inner::before {
+  top: 10px;
+}
+.hamburger-inner::after {
+  top: 20px;
+}
+.hamburger-inner.is-active {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+.hamburger-inner.is-active::before {
+  transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+  opacity: 0;
+}
+.hamburger-inner.is-active::after {
+  transform: translate3d(0, -20px, 0) rotate(-90deg);
 }
 nav ul {
   list-style: none;
@@ -59,11 +89,13 @@ nav ul {
 }
 .dropdown-content {
   padding: 35px;
+  padding-top: 0;
+  margin-top: 32px;
   text-align: end;
   background-color: var(--light-orange);
   display: none;
   animation: slideDown 300ms ease-in-out forwards;
 }
-.dropdown-button:hover + .dropdown-content {
+.show {
   display: block;
 }
