@@ -25,6 +25,9 @@ nav {
   height: 25px;
   display: inline-block;
 }
+.hamburger:hover {
+  cursor: pointer;
+}
 .hamburger-inner {
   display: block;
 }
@@ -61,10 +64,24 @@ nav {
 .hamburger-inner.is-active::after {
   transform: translate3d(0, -20px, 0) rotate(-90deg);
 }
+.hamburger:hover .hamburger-inner,
+.hamburger:hover .hamburger-inner::before,
+.hamburger:hover .hamburger-inner::after {
+  background-color: var(--creme);
+}
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-family: 'Amatic';
+  font-size: 1.8rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--blackish);
+}
+nav a:hover {
+  color: var(--creme);
 }
 .dropdown {
   display: flex;
@@ -87,15 +104,26 @@ nav ul {
     transform: translateY(0);
   }
 }
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
 .dropdown-content {
   padding: 35px;
   padding-top: 0;
   margin-top: 32px;
   text-align: end;
   background-color: var(--light-orange);
-  display: none;
-  animation: slideDown 300ms ease-in-out forwards;
+  /* display: none; */
+  animation: slideUp 300ms ease-in-out forwards;
 }
 .show {
-  display: block;
+  /* display: block; */
+  animation: slideDown 300ms ease-in-out forwards;
 }
