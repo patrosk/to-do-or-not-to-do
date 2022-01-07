@@ -7,14 +7,17 @@ require __DIR__ . '/views/navigation.php';
 <h1 class="heading">To Do Or Not To Do</h1>
 <h2 class="slogan">...that is the question</h2>
 
-<p><?= show_error() ?></p>
+<span class="messages">
+    <p><?= show_error() ?></p>
 
-<?php if (is_logged_in()) : ?>
-    <p><?= welcome_message() ?></p>
+    <?php if (is_logged_in()) : ?>
+        <p><?= welcome_message() ?></p>
+</span>
 
+<span class="due-today">
     <?php $tasks_due_today = get_tasks_due_today($database) ?>
     <?php if ($tasks_due_today) : ?>
-        Due Today!
+        <h2>Due Today!</h2>
         <ul>
             <?php foreach ($tasks_due_today as $task) : ?>
                 <li>
@@ -23,8 +26,9 @@ require __DIR__ . '/views/navigation.php';
             <?php endforeach ?>
         </ul>
     <?php else : ?>
-        No tasks due today!
+        <h2>No tasks due today!</h2>
     <?php endif ?>
+</span>
 
 <?php else : ?>
     <div class="home-buttons">

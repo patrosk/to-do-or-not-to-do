@@ -1,3 +1,11 @@
+/* MAIN STYLING */
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+main {
+  padding-top: 150px;
+}
 .heading {
   text-align: center;
   font-size: 54px;
@@ -5,17 +13,19 @@
 .slogan {
   text-align: center;
   font-size: 36px;
+  margin-bottom: 0;
 }
 .home-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.home-buttons button {
+.home-buttons button,
+form button {
   all: unset;
   height: 50px;
   width: 150px;
-  background-color: var(--bright-orange);
+  background-color: var(--secondary-color);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -23,15 +33,61 @@
   margin-bottom: 20px;
   transition: 0.5s ease;
 }
-.home-buttons button:hover {
-  background-color: var(--light-orange);
+.home-buttons button:hover,
+form button:hover {
+  background-color: var(--primary-color);
 }
 .home-buttons a {
   text-decoration: none;
   font-family: 'Amatic';
-  color: var(--blackish);
+  color: var(--font-color);
   font-size: 30px;
+}
+.messages,
+.due-today {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.due-today h2 {
+  margin-bottom: 0;
+}
+.due-today ul {
+  list-style: none;
+  padding: 0;
+}
+.due-today li {
+  margin-bottom: 10px;
+}
+.due-today li a {
+  padding: 10px;
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: 0.2s ease-in;
+}
+.due-today li:hover a {
+  background-color: var(--primary-color);
+  border-radius: 6px;
 }
 img {
   width: 100%;
+}
+input {
+  height: 35px;
+  width: 315px;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.submit-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form button {
+  text-decoration: none;
+  font-family: 'Amatic';
+  color: var(--font-color);
+  font-size: 24px;
+  margin-top: 10px;
 }

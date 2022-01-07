@@ -1,7 +1,8 @@
 nav {
-  background-color: var(--light-orange);
+  background-color: var(--primary-color);
   width: 100vw;
   height: 110px;
+  position: fixed;
 }
 .navbar {
   display: flex;
@@ -12,7 +13,7 @@ nav {
   text-decoration: none;
   font-family: 'Amatic';
   font-size: 42px;
-  color: var(--blackish);
+  color: var(--font-color);
 }
 .dropdown-button {
   border: none;
@@ -36,7 +37,7 @@ nav {
 .hamburger-inner::after {
   width: 30px;
   height: 5px;
-  background-color: var(--blackish);
+  background-color: var(--font-color);
   border-radius: 6px;
   position: absolute;
   transition-property: transform;
@@ -67,7 +68,7 @@ nav {
 .hamburger:hover .hamburger-inner,
 .hamburger:hover .hamburger-inner::before,
 .hamburger:hover .hamburger-inner::after {
-  background-color: var(--creme);
+  background-color: var(--background-color);
 }
 nav ul {
   list-style: none;
@@ -78,10 +79,10 @@ nav ul {
 }
 nav a {
   text-decoration: none;
-  color: var(--blackish);
+  color: var(--font-color);
 }
 nav a:hover {
-  color: var(--creme);
+  color: var(--background-color);
 }
 .dropdown {
   display: flex;
@@ -98,14 +99,14 @@ nav a:hover {
   padding-top: 0;
   margin-top: 32px;
   text-align: end;
-  background-color: var(--light-orange);
+  background-color: var(--primary-color);
   position: fixed;
   right: -100%;
   transition: 0.3s ease-in-out;
   opacity: 0;
+  top: 8%;
 }
 .show {
   opacity: 1;
   right: 0;
-  top: 10%;
 }

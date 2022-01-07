@@ -11,7 +11,15 @@ require __DIR__ . '/views/navigation.php'; ?>
 </p>
 
 <h2>Join us!</h2>
-<p>Want to start organising your life? <strong>Register</strong> and create your profile <a href="/register.php">here</a></p>
-<p>Already a member? Login to your account <a href="/login.php">here</a></p>
+<p>Want to start organising your life? <strong>Register</strong> and create your profile here:</p>
+<div class="home-buttons">
+    <button><a href="/register.php">Register</a></button>
+</div>
+
+<p>Already a member? Login to your account here:</p>
+<div class="home-buttons">
+    <button><a href="/login.php">Login</a></button>
+</div>
+
 
 <?php require __DIR__ . '/views/footer.php';
