@@ -120,10 +120,12 @@ nav a:hover {
   margin-top: 32px;
   text-align: end;
   background-color: var(--light-orange);
-  /* display: none; */
-  animation: slideUp 300ms ease-in-out forwards;
+  display: none;
 }
 .show {
-  /* display: block; */
+  display: block;
   animation: slideDown 300ms ease-in-out forwards;
+}
+.hide {
+  animation: slideUp 300ms ease-in-out forwards;
 }
