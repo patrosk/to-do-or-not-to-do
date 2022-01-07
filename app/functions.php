@@ -48,10 +48,8 @@ function show_message()
     }
 }
 
-function get_image_url()
+function get_image_url(PDO $database)
 {
-    $database = new PDO(sprintf('sqlite:%s/database/database.db', __DIR__));
-
     $user_id = $_SESSION['user']['id'];
 
     $statement = $database->prepare("SELECT image_url FROM users WHERE id = :id");

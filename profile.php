@@ -25,7 +25,7 @@ $completed_count = count($task_status['completed']);
 </ul>
 
 <div>
-    <img src="<?= get_image_url() ?>" alt="">
+    <img src="<?= get_image_url($database) ?>" alt="">
 </div>
 <?php
 
