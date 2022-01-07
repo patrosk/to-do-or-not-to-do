@@ -93,39 +93,19 @@ nav a:hover {
   right: 0;
   z-index: 1;
 }
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slideUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
 .dropdown-content {
   padding: 35px;
   padding-top: 0;
   margin-top: 32px;
   text-align: end;
   background-color: var(--light-orange);
-  display: none;
+  position: fixed;
+  right: -100%;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
 }
 .show {
-  display: block;
-  animation: slideDown 300ms ease-in-out forwards;
-}
-.hide {
-  animation: slideUp 300ms ease-in-out forwards;
+  opacity: 1;
+  right: 0;
+  top: 10%;
 }
