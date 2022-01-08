@@ -48,10 +48,8 @@ function show_message()
     }
 }
 
-function get_image_url(PDO $database)
+function get_image_url(PDO $database, $user_id)
 {
-    $user_id = $_SESSION['user']['id'];
-
     $statement = $database->prepare("SELECT image_url FROM users WHERE id = :id");
     $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
 
@@ -59,11 +57,18 @@ function get_image_url(PDO $database)
     $image = $statement->fetch(PDO::FETCH_ASSOC);
     $image_url = $image['image_url'];
 
-    if ($image_url === null) {
+    return $image_url;
+}
+
+function get_avatar()
+{
+    $avatar = $_SESSION['user']['image_url'];
+
+    if ($avatar === null) {
         return '/images/rubber_duck.png';
     }
 
-    return '/uploads/' . $image_url;
+    return '/uploads/' . $avatar;
 }
 
 function get_user_info(PDO $database)

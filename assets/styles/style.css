@@ -91,3 +91,8 @@ form button {
   font-size: 24px;
   margin-top: 10px;
 }
+
+/* PROFILE PAGE */
+.avatar-upload input {
+  all: unset;
+}

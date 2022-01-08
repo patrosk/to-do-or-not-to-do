@@ -25,14 +25,14 @@ $completed_count = count($task_status['completed']);
 </ul>
 
 <div>
-    <img src="<?= get_image_url($database) ?>" alt="">
+    <img src="<?= get_avatar() ?>" alt="">
 </div>
 <?php
 
 ?>
 
 <div>Change your profile picture</div>
-<form action="/app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
+<form class="avatar-upload" action=" /app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
     <label for="avatar">Upload your avatar image in PNG/JPG format</label>
     <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
     <button type="submit">Upload image</button>
