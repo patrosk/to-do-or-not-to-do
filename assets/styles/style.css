@@ -153,3 +153,34 @@ h2 a:hover {
   text-decoration: none;
   color: var(--font-color);
 }
+
+/* SINGLE LIST PAGE */
+.task-info {
+  display: none;
+}
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.display {
+  animation: reveal 0.5s linear;
+  display: block;
+}
+.do-not-display {
+  animation: hide 0.5s linear;
+}
+.hide {
+  display: none;
+}

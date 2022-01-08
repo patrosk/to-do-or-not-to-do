@@ -23,24 +23,30 @@ foreach ($lists as $list) : ?>
 foreach ($tasks as $task) : ?>
     <?php $status = task_status($task); ?>
 
-    <h4>Name: <?= $task['name'] ?></h4>
-    <button>
-        <a href="/edit_task.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit task</a>
-    </button>
-    <button>
-        <a href="/app/tasks/delete.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Delete task</a>
-    </button>
-    <p>Description: <?= $task['description'] ?></p>
-    <p>Deadline: <?= $task['deadline_at'] ?></p>
-    <p>Status:</p>
-    <form action="/app/tasks/status.php?list_id=<?= $id ?>&task_id=<?= $task['id'] ?>" method="post">
-        <label for="completed">completed</label>
-        <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-        <label for="uncompleted">uncompleted</label>
-        <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-        <button type="submit">Update status</button>
-    </form>
+    <div class="task-box">
+        <h4>Name: <?= $task['name'] ?></h4>
+        <button class="see-more-button">see more</button>
+        <button class="see-less-button hide">see less</button>
 
+        <div class="task-info">
+            <button>
+                <a href="/edit_task.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+            </button>
+            <button>
+                <a href="/app/tasks/delete.php?id=<?= $id ?>&task_id=<?= $task['id'] ?>">Delete task</a>
+            </button>
+            <p>Description: <?= $task['description'] ?></p>
+            <p>Deadline: <?= $task['deadline_at'] ?></p>
+            <p>Status:</p>
+            <form action="/app/tasks/status.php?list_id=<?= $id ?>&task_id=<?= $task['id'] ?>" method="post">
+                <label for="completed">completed</label>
+                <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+                <label for="uncompleted">uncompleted</label>
+                <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+                <button type="submit">Update status</button>
+            </form>
+        </div>
+    </div>
 <?php endforeach ?>
 
 <h3>Change list title</h3>

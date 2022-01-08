@@ -15,30 +15,36 @@ $tasks = get_tasks($database); ?>
     <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
-                <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
-                (<a href="/single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a>)<br>
-                <?= $task['deadline_at'] ?><br>
+                <div class="task-box">
+                    <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
 
-                <button>
-                    <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
-                </button>
-                <button>
-                    <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
-                </button>
+                    <button class="see-more-button">see more</button>
+                    <button class="see-less-button hide">see less</button>
 
-                <br>Status:
+                    <div class="task-info">
+                        (<a href="/single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a>)<br>
+                        <?= $task['deadline_at'] ?><br>
 
-                <?php $status = task_status($task); ?>
+                        <button>
+                            <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+                        </button>
+                        <button>
+                            <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
+                        </button>
 
-                <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
-                    <label for="completed">completed</label>
-                    <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-                    <label for="uncompleted">uncompleted</label>
-                    <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-                    <button type="submit">Update status</button>
-                </form>
+                        <br>Status:
 
+                        <?php $status = task_status($task); ?>
 
+                        <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
+                            <label for="completed">completed</label>
+                            <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+                            <label for="uncompleted">uncompleted</label>
+                            <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+                            <button type="submit">Update status</button>
+                        </form>
+                    </div>
+                </div>
             </li><br>
         <?php endforeach ?>
     </ul>
