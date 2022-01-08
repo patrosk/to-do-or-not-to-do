@@ -31,30 +31,37 @@ $completed_count = count($task_status['completed']);
 
 ?>
 
-<div>Change your profile picture</div>
-<form class="avatar-upload" action=" /app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
-    <label for="avatar">Upload your avatar image in PNG/JPG format</label>
-    <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
-    <button type="submit">Upload image</button>
-</form>
+<div class="change-avatar">
+    <h2>Change your profile picture</h2>
+    <form class="avatar-upload" action=" /app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
+        <label for="avatar">Upload your avatar image in PNG/JPG format</label>
+        <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
+        <button type="submit">Upload image</button>
+    </form>
+</div>
 
-<div>Change your email address</div>
-<form action="/app/users/change_email.php" method="post">
-    <label for="email">new email address:</label>
-    <input type="email" name="email" id="email">
-    <button type="submit">Change email address</button>
-</form>
+<div class="change-email">
+    <h2>Change your email address</h2>
+    <form action="/app/users/change_email.php" method="post">
+        <label for="email">new email address:</label>
+        <input type="email" name="email" id="email">
+        <button type="submit">Change email address</button>
+    </form>
+</div>
 
-<div>Change your password</div>
-<form action="/app/users/change_password.php" method="post">
-    <label for="password">current password:</label>
-    <input name="password" id="password" type="password">
-    <label for="new_password">select your password:</label>
-    <input name="new_password" id="new_password" type="password">
-    <button type="submit">Change password</button>
-</form>
+<div class="change-password">
+    <h2>Change your password</h2>
+    <form action="/app/users/change_password.php" method="post">
+        <label for="password">current password:</label>
+        <input name="password" id="password" type="password">
+        <label for="new_password">select your new password:</label>
+        <input name="new_password" id="new_password" type="password">
+        <button type="submit">Change password</button>
+    </form>
+</div>
 
-<div>Delete profile
+<div class="delete-profile">
+    <h2>Delete profile</h2>
     <p>Delete your profile and all lists and tasks along with your
         profile picture and user information.
         This cannot be undone!

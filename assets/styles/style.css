@@ -36,6 +36,7 @@ form button {
 .home-buttons button:hover,
 form button:hover {
   background-color: var(--primary-color);
+  box-shadow: inset 0px 0px 0px 2px var(--accent-color);
 }
 .home-buttons a {
   text-decoration: none;
@@ -74,7 +75,7 @@ img {
 }
 input {
   height: 35px;
-  width: 315px;
+  width: 100%;
   border: none;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -95,4 +96,60 @@ form button {
 /* PROFILE PAGE */
 .avatar-upload input {
   all: unset;
+}
+.delete-profile button {
+  all: unset;
+  color: var(--font-color);
+  font-size: 24px;
+  margin-top: 10px;
+  height: 50px;
+  width: 150px;
+  background-color: var(--accent-color);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: 0.5s ease;
+  margin-top: 30px;
+}
+.delete-profile a {
+  color: var(--font-color);
+  text-decoration: none;
+  font-family: 'Amatic';
+}
+.change-avatar,
+.change-email,
+.change-password,
+.delete-profile {
+  margin-bottom: 80px;
+}
+
+/* OVERVIEW PAGE */
+h2 a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+h2 a:hover {
+  color: var(--primary-color);
+}
+.counter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+/* EDIT TASK PAGE */
+.description-label {
+  margin-bottom: 10px;
+}
+.edit-task textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.edit-task a {
+  text-decoration: none;
+  color: var(--font-color);
 }

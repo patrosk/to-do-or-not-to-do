@@ -18,17 +18,23 @@ if (isset($task_status)) {
 }
 ?>
 
-<h2><a href="/lists.php">Your lists</a></h2>
-<h4>Number of lists:</h4>
+<div class="counter">
+    <div class="lists">
+        <h2><a href="/lists.php">Your lists</a></h2>
+        <h4>Number of lists:</h4>
 
-<?= $list_count  ?>
+        <?= $list_count  ?>
+    </div>
 
-<h2><a href="/tasks.php">Your tasks</a></h2>
-<h4>Number of tasks:</h4>
+    <div class="tasks">
+        <h2><a href="/tasks.php">Your tasks</a></h2>
+        <h4>Number of tasks:</h4>
 
-Total: <?= $task_count ?><br>
-Completed: <?= $completed_count ?><br>
-Uncompleted: <?= $uncompleted_count ?><br>
+        Total: <?= $task_count ?><br>
+        Completed: <?= $completed_count ?><br>
+        Uncompleted: <?= $uncompleted_count ?><br>
+    </div>
+</div>
 
 <h2>Due Date Tracker</h2>
 
