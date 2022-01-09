@@ -33,12 +33,14 @@ $task = $tasks[0];
 
 <?php $status = task_status($task); ?>
 
-<form action="/app/tasks/status.php?origin=single_task.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
-    <label for="completed">completed</label>
-    <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-    <label for="uncompleted">uncompleted</label>
-    <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-    <button type="submit">Update status</button>
-</form>
+<div class="complete-form">
+    <form action="/app/tasks/status.php?origin=single_task.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
+        <label for="completed">completed</label>
+        <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+        <label for="uncompleted">uncompleted</label>
+        <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+        <!-- <button type="submit">Update status</button> -->
+    </form>
+</div>
 
 <?php require __DIR__ . '/views/footer.php';

@@ -7,16 +7,7 @@ require __DIR__ . '/views/navigation.php'; ?>
 $user_id = $_SESSION['user']['id'];
 $tasks = get_tasks($database);
 $completed = isset($_POST['completed']);
-
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
-
-    if ($completed) {
-        echo "The task $id is completed.";
-    } else {
-        echo "The task $id is not completed.";
-    }
-} ?>
+?>
 
 <p><?= show_message() ?></p>
 
@@ -26,18 +17,31 @@ if (isset($_POST['id'])) {
     <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
-                <div class="checkbox">
-                    <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="POST">
-                        <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                <!-- <div class="checkbox">
+                    <form action="/app/tasks/checkbox.php" method="POST">
+                        <input type="hidden" name="checkbox-id" value="<?= $task['id'] ?>">
                         <input type="checkbox" name="completed" id="completed" <?= $completed ? 'checked' : '' ?>>
                         <label for="completed">
                             <?= $task['name'] ?>
                         </label>
                     </form>
-                </div>
+                </div> -->
 
                 <div class="task-box">
                     <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
+
+                    <br>Status:
+
+                    <?php $status = task_status($task); ?>
+
+                    <div class="complete-form">
+                        <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
+                            <label for="completed">completed</label>
+                            <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+                            <label for="uncompleted">uncompleted</label>
+                            <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+                        </form>
+                    </div>
 
                     <button class="see-more-button">see more</button>
                     <button class="see-less-button hide">see less</button>
@@ -53,17 +57,9 @@ if (isset($_POST['id'])) {
                             <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
                         </button>
 
-                        <br>Status:
 
-                        <?php $status = task_status($task); ?>
 
-                        <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
-                            <label for="completed">completed</label>
-                            <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-                            <label for="uncompleted">uncompleted</label>
-                            <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-                            <button type="submit">Update status</button>
-                        </form>
+
                     </div>
                 </div>
             </li><br>

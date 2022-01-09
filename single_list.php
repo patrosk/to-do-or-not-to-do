@@ -38,13 +38,15 @@ foreach ($tasks as $task) : ?>
             <p>Description: <?= $task['description'] ?></p>
             <p>Deadline: <?= $task['deadline_at'] ?></p>
             <p>Status:</p>
-            <form action="/app/tasks/status.php?list_id=<?= $id ?>&task_id=<?= $task['id'] ?>" method="post">
-                <label for="completed">completed</label>
-                <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-                <label for="uncompleted">uncompleted</label>
-                <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-                <button type="submit">Update status</button>
-            </form>
+            <div class="complete-form">
+                <form action="/app/tasks/status.php?list_id=<?= $id ?>&task_id=<?= $task['id'] ?>" method="post">
+                    <label for="completed">completed</label>
+                    <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+                    <label for="uncompleted">uncompleted</label>
+                    <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+                    <!-- <button type="submit">Update status</button> -->
+                </form>
+            </div>
         </div>
     </div>
 <?php endforeach ?>

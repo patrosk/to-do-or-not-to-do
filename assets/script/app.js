@@ -7,12 +7,28 @@ menuButton.addEventListener('click', () => {
   hamburgerSpans.classList.toggle('is-active');
 });
 
-const form = document.querySelector('.checkbox form');
-const task = document.querySelector('.checkbox input[type=checkbox]');
+// const checkboxForms = document.querySelectorAll('.checkbox form');
 
-task.addEventListener('click', () => {
-  form.submit();
-  console.log(task);
+// checkboxForms.forEach((form) => {
+//   const task = form.querySelector('.checkbox input[type=checkbox]');
+
+//   task.addEventListener('click', () => {
+//     form.submit();
+//     console.log(task);
+//   });
+// });
+
+const completedForms = document.querySelectorAll('.complete-form form');
+
+completedForms.forEach((completedForm) => {
+  const radioButtons = completedForm.querySelectorAll(
+    '.complete-form input[type=radio]'
+  );
+  radioButtons.forEach((radioButton) => {
+    radioButton.addEventListener('click', () => {
+      completedForm.submit();
+    });
+  });
 });
 
 const taskBoxes = document.querySelectorAll('.task-box');

@@ -184,3 +184,19 @@ h2 a:hover {
 .hide {
   display: none;
 }
+
+/* TASKS PAGE */
+.complete-form input {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+}
+/* .complete-form {
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+} */
+input[type='radio'] {
+  appearance: none;
+  background-color: var(--accent-color);
+}
