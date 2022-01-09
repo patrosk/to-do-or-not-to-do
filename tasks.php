@@ -5,7 +5,18 @@ require __DIR__ . '/views/navigation.php'; ?>
 
 <?php
 $user_id = $_SESSION['user']['id'];
-$tasks = get_tasks($database); ?>
+$tasks = get_tasks($database);
+$completed = isset($_POST['completed']);
+
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+
+    if ($completed) {
+        echo "The task $id is completed.";
+    } else {
+        echo "The task $id is not completed.";
+    }
+} ?>
 
 <p><?= show_message() ?></p>
 
@@ -15,6 +26,16 @@ $tasks = get_tasks($database); ?>
     <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
+                <div class="checkbox">
+                    <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                        <input type="checkbox" name="completed" id="completed" <?= $completed ? 'checked' : '' ?>>
+                        <label for="completed">
+                            <?= $task['name'] ?>
+                        </label>
+                    </form>
+                </div>
+
                 <div class="task-box">
                     <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
 
