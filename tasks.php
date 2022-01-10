@@ -30,16 +30,27 @@ $completed = isset($_POST['completed']);
                 <div class="task-box">
                     <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
 
-                    <br>Status:
-
                     <?php $status = task_status($task); ?>
+
+                    <!-- <div class="status-icon">
+                        <?php
+                        if ($status['completed'] === 'checked') : ?>
+                            <div class="green"></div>
+                        <?php else : ?>
+                            <div class="red"></div>
+                        <?php endif ?>
+                    </div> -->
 
                     <div class="complete-form">
                         <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
-                            <label for="completed">completed</label>
-                            <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-                            <label for="uncompleted">uncompleted</label>
-                            <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+                            <div class="completed-button">
+                                <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+                                <label for="completed">completed</label>
+                            </div>
+                            <div class="uncompleted-button">
+                                <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+                                <label for="uncompleted">uncompleted</label>
+                            </div>
                         </form>
                     </div>
 
@@ -57,6 +68,12 @@ $completed = isset($_POST['completed']);
                             <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
                         </button>
 
+                        <br>Status:
+                        <?php if (isset($task['completed_at'])) : ?>
+                            Completed!
+                        <?php else : ?>
+                            Uncompleted!
+                        <?php endif ?>
 
 
 

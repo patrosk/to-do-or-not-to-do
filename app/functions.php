@@ -48,20 +48,10 @@ function show_message()
     }
 }
 
-function get_image_url(PDO $database, $user_id)
-{
-    $statement = $database->prepare("SELECT image_url FROM users WHERE id = :id");
-    $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
-
-    $statement->execute();
-    $image = $statement->fetch(PDO::FETCH_ASSOC);
-    $image_url = $image['image_url'];
-
-    return $image_url;
-}
-
 function get_avatar()
 {
+    $_SESSION['user']['image_url'] ?? 'rubber_duck.png';
+
     $avatar = $_SESSION['user']['image_url'];
 
     if ($avatar === null) {

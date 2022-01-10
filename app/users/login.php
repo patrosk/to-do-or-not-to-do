@@ -14,14 +14,13 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-    $image_url = get_image_url($database, $user['id']);
+    $image_url = $_SESSION['image_url'];
 
     if ($user === false) {
         $_SESSION['errors'][] = "Ooops! Something went wrong. You've entered an incorrect email address or password.";
         redirect('/');
     }
     if (password_verify($_POST['password'], $user['password'])) {
-
         $_SESSION['user'] = [
             "id" => $user['id'],
             "name" => $user['username'],
