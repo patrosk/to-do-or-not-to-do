@@ -65,7 +65,9 @@ $completed_count = count($task_status['completed']);
         profile picture and user information.
         This cannot be undone!
     </p>
-    <button type="button"><a href="/app/users/delete.php?id=<?= $_SESSION['user']['id'] ?>"> Delete profile</a></button>
+    <button type="button">
+        <a href="/app/users/delete.php?id=<?= $_SESSION['user']['id'] ?>" onclick="return confirm('Are you sure you want to delete your profile permanently?');"> Delete profile</a>
+    </button>
 </div>
 
 <?php require __DIR__ . '/views/footer.php';

@@ -26,7 +26,9 @@ ul {
   margin-top: 50px;
 }
 .home-buttons button,
-form button {
+form button,
+.change-title-button,
+.add-task-button {
   all: unset;
   height: 50px;
   width: 150px;
@@ -39,7 +41,9 @@ form button {
   transition: 0.5s ease;
 }
 .home-buttons button:hover,
-form button:hover {
+form button:hover,
+.change-title-button:hover,
+.add-task-button:hover {
   background-color: var(--primary-color);
   box-shadow: inset 0px 0px 0px 2px var(--accent-color);
 }
@@ -177,11 +181,15 @@ h2 a:hover {
   text-decoration: none;
   color: var(--accent-color);
 }
+.due-date-tracker a:hover {
+  color: var(--secondary-color);
+}
 /* EDIT TASK PAGE */
 .description-label {
   margin-bottom: 10px;
 }
-.edit-task textarea {
+.edit-task textarea,
+.add-task textarea {
   width: 100%;
   height: 100px;
   margin-top: 10px;
@@ -193,7 +201,9 @@ h2 a:hover {
 }
 
 /* SINGLE LIST PAGE */
-.task-info {
+.task-info,
+.add-task,
+.change-title {
   display: none;
 }
 @keyframes reveal {
@@ -204,24 +214,27 @@ h2 a:hover {
     opacity: 1;
   }
 }
-@keyframes hide {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 .display {
   animation: reveal 0.5s linear;
   display: block;
 }
-.do-not-display {
-  animation: hide 0.5s linear;
-}
 .hide {
   display: none;
 }
+.change-title-button,
+.add-task-button {
+  font-family: 'Amatic';
+  font-size: 24px;
+  background-color: var(--primary-color);
+  margin-bottom: 50px;
+}
+.change-title button,
+.add-task button {
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+}
+
 /* TASKS PAGE */
 .complete-form {
   margin-left: 30px;
@@ -260,9 +273,10 @@ input[type='radio']:checked::before {
   padding-bottom: 5px;
   gap: 15px; */
 }
-.completed-button:hover,
-.uncompleted-button:hover {
+input#completed,
+input#uncompleted {
   cursor: pointer;
+  z-index: -1;
 }
 .see-more-button,
 .see-less-button {
@@ -275,48 +289,77 @@ input[type='radio']:checked::before {
   margin-top: 15px;
   font-size: 20px;
   margin-bottom: 20px;
+  transition: 0.5s ease;
 }
 .see-more-button:hover,
 .see-less-button:hover {
   cursor: pointer;
   box-shadow: inset 0px 0px 0px 2px var(--accent-color);
 }
-.task-box a {
+.task-box a,
+.task-button a,
+.list-titles a,
+.no-top-margin a {
   font-family: 'Amatic';
   font-size: 24px;
   text-decoration: none;
   color: var(--font-color);
 }
-.task-box a:hover {
+.task-box a:hover,
+.no-top-margin a:hover {
   color: var(--accent-color);
   cursor: pointer;
 }
-/* .task-info p {
-  margin: 0;
-} */
-.task-info h3 {
+.task-info h3,
+.no-top-margin {
   margin: 0;
   margin-bottom: 10px;
 }
 .task-info p:first-child {
   margin: 0;
 }
-.task-info button {
+.task-info button,
+.task-button button,
+.list-titles button {
   all: unset;
   height: 30px;
   padding: 5px 10px 5px 10px;
   background-color: var(--primary-color);
   border-radius: 6px;
+  transition: 0.5s ease;
 }
-.task-info button.delete {
+.task-info button.delete,
+.task-button button.delete,
+.list-titles button.delete {
   background-color: var(--accent-color);
 }
-.task-info button.delete:hover {
+.task-info button.delete:hover,
+.task-button button.delete:hover,
+.list-titles button.delete:hover {
   box-shadow: inset 0px 0px 0px 2px var(--primary-color);
 }
-.task-info button:hover {
+.task-info button:hover,
+.task-button button:hover,
+.list-titles button:hover {
   box-shadow: inset 0px 0px 0px 2px var(--accent-color);
 }
-.task-info button a:hover {
-  color: var(--font-color);
+.task-info button a:hover,
+.task-button button a:hover,
+.list-titles button a:hover {
+  color: var(--background-color);
+}
+
+.icon {
+  border-radius: 0;
+  height: 13px;
+  width: 13px;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+/* LIST PAGE */
+.list-titles button {
+  margin-right: 15px;
+}
+.no-bottom-margin {
+  margin-bottom: 0;
 }

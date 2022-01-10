@@ -11,13 +11,13 @@ require __DIR__ . '/views/navigation.php'; ?>
     <?php
     $lists = get_lists($database);
     foreach ($lists as $list) : ?>
-        <li>
-            <?= $list['title'] ?><br>
+        <li class="list-titles">
+            <h2><?= $list['title'] ?></h2>
             <button>
-                <a href="/single_list.php?id=<?= $list['id']; ?>">Edit </a>
+                <a href="/single_list.php?id=<?= $list['id']; ?>">Edit list</a>
             </button>
-            <button>
-                <a href="/app/lists/delete.php?id=<?= $list['id']; ?>">Delete </a>
+            <button class="delete">
+                <a href="/app/lists/delete.php?id=<?= $list['id']; ?>" onclick="return confirm('Are you sure you want to delete this list and all tasks in it?');">Delete list</a>
             </button>
         </li>
     <?php endforeach ?>

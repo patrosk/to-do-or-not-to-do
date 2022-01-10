@@ -31,8 +31,8 @@ if (isset($task_status)) {
         <h4>Number of tasks:</h4>
 
         Total: <?= $task_count ?><br>
-        Completed: <?= $completed_count ?><br>
-        Uncompleted: <?= $uncompleted_count ?><br>
+        <img class="icon" src="/images/check.png" alt="green check mark">Completed: <?= $completed_count ?><br>
+        <img class="icon" src="/images/cross.png" alt="red cross mark">Uncompleted: <?= $uncompleted_count ?><br>
     </div>
 </div>
 
@@ -48,6 +48,8 @@ if (isset($task_status)) {
 
 <h2>Due Date Tracker</h2>
 
+
+
 <div>
     <ul class="due-date-tracker">
         <?php foreach ($tasks as $task) :
@@ -61,12 +63,12 @@ if (isset($task_status)) {
                     Due today!<br>
                 <?php endif ?>
                 <?php if ($deadline_at < date('Y-m-d')) : ?>
-                    Deadline passed!<br>
+                    Deadline passed!<img class="icon" src="/images/cross.png" alt="red cross mark"><br>
                 <?php endif ?>
                 <?php if (isset($task['completed_at'])) : ?>
-                    Completed!
+                    Completed!<img class="icon" src="/images/check.png" alt="green check mark">
                 <?php else : ?>
-                    Uncompleted!
+                    Uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
                 <?php endif ?>
             </li>
 

@@ -14,7 +14,7 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-    $image_url = $_SESSION['image_url'];
+    $image_url = get_image_url($database, $user['id']);
 
     if ($user === false) {
         $_SESSION['errors'][] = "Ooops! Something went wrong. You've entered an incorrect email address or password.";

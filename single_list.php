@@ -9,17 +9,16 @@ require __DIR__ . '/views/navigation.php';
 $id = $_GET['id'];
 $user_id = $_SESSION['user']['id'];
 $lists = get_lists($database);
-$tasks = get_tasks_from_list($database, $id);
+$tasks = get_tasks_from_list($database, $id); ?>
 
-echo show_message();
-
-foreach ($lists as $list) : ?>
+<?php foreach ($lists as $list) : ?>
     <?php if ($list['id'] == $id) : ?>
         <h2><?= $list['title'] ?></h2>
     <?php endif ?>
 <?php endforeach ?>
 
 <ul>
+    <p><?= show_message() ?></p>
     <?php
     foreach ($tasks as $task) : ?>
         <?php $status = task_status($task); ?>
@@ -71,22 +70,26 @@ foreach ($lists as $list) : ?>
     <?php endforeach ?>
 </ul>
 
-<h3>Change list title</h3>
-<form action="/app/lists/update.php?id=<?= $id ?>" method="post">
-    <label for="title">New title: </label>
-    <input name="title" id="title" type="text">
-    <button type="submit">Update title</button>
-</form>
+<button class="change-title-button">Change list title</button>
+<div class="change-title">
+    <form action="/app/lists/update.php?id=<?= $id ?>" method="post">
+        <label for="title">New title: </label>
+        <input name="title" id="title" type="text" required>
+        <button type="submit">Update title</button>
+    </form>
+</div>
 
-<h3>Add task to list</h3>
-<form action="/app/tasks/create.php?id=<?= $id ?>" method="post" id="new_task">
-    <label for="name">Task name: </label>
-    <input name="name" id="name" type="text">
-    <label for="deadline">Deadline: </label>
-    <input name="deadline" id="deadline" type="date">
-    <button type="submit">Add task</button>
-</form>
-<label for="description">Description: </label>
-<textarea name="description" id="description" form="new_task"></textarea>
+<button class="add-task-button">Add task to list</button>
+<div class="add-task">
+    <form action="/app/tasks/create.php?id=<?= $id ?>" method="post" id="new_task">
+        <label for="name">Task name: </label>
+        <input name="name" id="name" type="text">
+        <label for="deadline">Deadline: </label>
+        <input name="deadline" id="deadline" type="date">
+        <label for="description">Description: </label>
+        <textarea name="description" id="description" form="new_task"></textarea>
+        <button type="submit">Add task</button>
+    </form>
+</div>
 
 <?php require __DIR__ . '/views/footer.php';

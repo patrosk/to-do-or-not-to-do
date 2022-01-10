@@ -52,9 +52,9 @@ $completed = isset($_POST['completed']);
 
                         <p>status:
                             <?php if (isset($task['completed_at'])) : ?>
-                                completed!
+                                completed!<img class="icon" src="/images/check.png" alt="green check mark">
                             <?php else : ?>
-                                uncompleted!
+                                uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
                             <?php endif ?>
                         </p>
 

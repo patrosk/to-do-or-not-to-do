@@ -3,6 +3,7 @@ nav {
   width: 100vw;
   height: 110px;
   position: fixed;
+  z-index: 2;
 }
 .navbar {
   display: flex;

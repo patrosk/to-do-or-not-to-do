@@ -13,34 +13,40 @@ $task = $tasks[0];
 
 <?= show_message() ?><br>
 
-<h4>Name:</h4>
-<?= $task['name'] ?><br>
-<h4>Description:</h4>
-<?= $task['description'] ?><br>
-<h4>In list:</h4>
-<a href="/single_list.php?id=<?= $list_id ?>"><?= $task['title'] ?><br></a>
-<h4>Deadline:</h4>
-<?= $task['deadline_at'] ?><br>
 
-<button>
-    <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
-</button>
-<button>
-    <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
-</button>
+<h2><?= $task['name'] ?></h2>
+<h3>task description:</h3>
+<p><?= $task['description'] ?></p>
+<p class="no-bottom-margin">in list:</p>
+<h3 class="no-top-margin"><a href="/single_list.php?id=<?= $list_id ?>"><?= $task['title'] ?></a></h3>
+<p>deadline: <?= $task['deadline_at'] ?></p>
 
-<h4>status:</h4>
+
+<div class="task-button">
+    <button>
+        <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+    </button>
+    <button class="delete">
+        <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
+    </button>
+</div>
+
+<p class="no-bottom-margin">status:</p>
 
 <?php $status = task_status($task); ?>
 
 <div class="complete-form">
     <form action="/app/tasks/status.php?origin=single_task.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
-        <label for="completed">completed</label>
-        <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
-        <label for="uncompleted">uncompleted</label>
-        <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
-        <!-- <button type="submit">Update status</button> -->
+        <div class="complete-button">
+            <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+            <label for="completed">completed</label>
+        </div>
+        <div class="complete-button">
+            <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
+            <label for="uncompleted">uncompleted</label>
+        </div>
     </form>
 </div>
+
 
 <?php require __DIR__ . '/views/footer.php';

@@ -10,8 +10,8 @@ require __DIR__ . '/views/navigation.php';
 <div class="messages">
     <h4><?= show_error() ?></h4>
     <?php if (is_logged_in()) : ?>
-        <h4><?= welcome_message() ?></h4>
 
+        <h4><?= welcome_message() ?></h4>
         <div class="img-box">
             <img src="<?= get_avatar() ?>" alt="">
         </div>
@@ -20,7 +20,7 @@ require __DIR__ . '/views/navigation.php';
             <?php $tasks_due_today = get_tasks_due_today($database) ?>
             <?php if ($tasks_due_today) : ?>
                 <h2>Due Today!</h2>
-                <ul>
+                <ul class="due-today">
                     <?php foreach ($tasks_due_today as $task) : ?>
                         <li>
                             <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
