@@ -10,7 +10,6 @@ require __DIR__ . '/views/navigation.php';
 <div class="messages">
     <h4><?= show_error() ?></h4>
     <?php if (is_logged_in()) : ?>
-
         <h4><?= welcome_message() ?></h4>
         <div class="img-box">
             <img src="<?= get_avatar() ?>" alt="">
