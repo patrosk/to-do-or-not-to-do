@@ -31,13 +31,13 @@ require __DIR__ . '/views/navigation.php';
                 <h2>No tasks due today!</h2>
             <?php endif ?>
         </div>
-</div>
 
-<?php else : ?>
-    <div class="home-buttons">
-        <button><a href="/login.php">Login</a></button>
-        <button><a href="/register.php">Register</a></button>
-    </div>
-<?php endif ?>
+    <?php else : ?>
+        <div class="home-buttons">
+            <button><a href="/login.php">Login</a></button>
+            <button><a href="/register.php">Register</a></button>
+        </div>
+    <?php endif ?>
+</div>
 
 <?php require __DIR__ . '/views/footer.php';
