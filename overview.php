@@ -36,16 +36,26 @@ if (isset($task_status)) {
     </div>
 </div>
 
+<div class="motivator">
+    <?php if ($completed_count > 0) : ?>
+        <h3>Way to go!</h3>
+    <?php elseif ($completed_count > 2) : ?>
+        <h3>Well done on completing your tasks!</h3>
+    <?php else : ?>
+        <h3>Don't worry, you'll complete a task soon!</h3>
+    <?php endif ?>
+</div>
+
 <h2>Due Date Tracker</h2>
 
 <div>
-    <ul>
+    <ul class="due-date-tracker">
         <?php foreach ($tasks as $task) :
             $name = $task['name'];
             $deadline_at = $task['deadline_at']; ?>
             <li>
-                <?= $deadline_at ?><br>
-                <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a><br>
+                <h4><?= $deadline_at ?></h4>
+                <h3><a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
                 <?php
                 if ($deadline_at === date('Y-m-d')) : ?>
                     Due today!<br>

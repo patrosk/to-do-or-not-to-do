@@ -29,7 +29,7 @@ $task = $tasks[0];
     <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
 </button>
 
-<h4>Status:</h4>
+<h4>status:</h4>
 
 <?php $status = task_status($task); ?>
 

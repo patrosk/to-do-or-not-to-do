@@ -6,7 +6,7 @@ require __DIR__ . '/views/navigation.php'; ?>
 <div>
     <?= show_error() ?>
     <?= show_message() ?>
-    <?= welcome_message() ?>
+    <h2 class="welcome"><?= welcome_message() ?></h2>
 </div>
 
 <?php
@@ -17,6 +17,10 @@ $task_status = count_tasks($tasks);
 $completed_count = count($task_status['completed']);
 ?>
 
+<div class="img-box">
+    <img src="<?= get_avatar() ?>" alt="">
+</div>
+
 <ul>
     <li>Username: <?= get_user_info($database)['username'] ?></li>
     <li>Email address: <?= get_user_info($database)['email'] ?></li>
@@ -24,12 +28,7 @@ $completed_count = count($task_status['completed']);
     <li>Completed tasks: <?= $completed_count ?></li>
 </ul>
 
-<div>
-    <img src="<?= get_avatar() ?>" alt="">
-</div>
-<?php
 
-?>
 
 <div class="change-avatar">
     <h2>Change your profile picture</h2>

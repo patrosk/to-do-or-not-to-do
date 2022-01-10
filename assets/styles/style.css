@@ -6,6 +6,10 @@ body {
 main {
   padding-top: 150px;
 }
+ul {
+  list-style: none;
+  /* padding: 0; */
+}
 .heading {
   text-align: center;
   font-size: 54px;
@@ -70,8 +74,13 @@ form button:hover {
   background-color: var(--primary-color);
   border-radius: 6px;
 }
+.img-box {
+  display: flex;
+  justify-content: center;
+}
 img {
-  width: 100%;
+  width: 80%;
+  border-radius: 50%;
 }
 input {
   height: 35px;
@@ -94,6 +103,9 @@ form button {
 }
 
 /* PROFILE PAGE */
+.welcome {
+  text-align: center;
+}
 .avatar-upload input {
   all: unset;
 }
@@ -136,9 +148,34 @@ h2 a:hover {
 .counter {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
-
+.motivator {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+.motivator h3 {
+  margin: 0;
+  color: var(--accent-color);
+}
+.due-date-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.due-date-tracker h4 {
+  margin: 0;
+  font-size: 24px;
+}
+.due-date-tracker h3 {
+  font-size: 30px;
+  margin: 0;
+}
+.due-date-tracker a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
 /* EDIT TASK PAGE */
 .description-label {
   margin-bottom: 10px;
@@ -184,8 +221,10 @@ h2 a:hover {
 .hide {
   display: none;
 }
-
 /* TASKS PAGE */
+.complete-form {
+  margin-left: 30px;
+}
 .complete-form input {
   width: 20px;
   height: 20px;
@@ -198,7 +237,8 @@ input[type='radio'] {
   border-radius: 50%;
   display: grid;
   place-content: center;
-  transform: translate(-10px, 4px);
+  transform: translate(-30px, 22px);
+  z-index: -1;
 }
 input[type='radio']::before {
   content: '';
@@ -212,9 +252,70 @@ input[type='radio']::before {
 input[type='radio']:checked::before {
   transform: scale(1);
 }
-.completed-button,
-.uncompleted-button {
-  display: flex;
+.complete-button {
+  z-index: 0;
+  /* display: flex;
   padding-top: 10px;
   padding-bottom: 5px;
+  gap: 15px; */
+}
+.completed-button:hover,
+.uncompleted-button:hover {
+  cursor: pointer;
+}
+.see-more-button,
+.see-less-button {
+  background-color: var(--primary-color);
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 6px;
+  font-family: 'Amatic';
+  margin-top: 15px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.see-more-button:hover,
+.see-less-button:hover {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 2px var(--accent-color);
+}
+.task-box a {
+  font-family: 'Amatic';
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--font-color);
+}
+.task-box a:hover {
+  color: var(--accent-color);
+  cursor: pointer;
+}
+/* .task-info p {
+  margin: 0;
+} */
+.task-info h3 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+.task-info p:first-child {
+  margin: 0;
+}
+.task-info button {
+  all: unset;
+  height: 30px;
+  padding: 5px 10px 5px 10px;
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+.task-info button.delete {
+  background-color: var(--accent-color);
+}
+.task-info button.delete:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--primary-color);
+}
+.task-info button:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--accent-color);
+}
+.task-info button a:hover {
+  color: var(--font-color);
 }

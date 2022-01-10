@@ -17,37 +17,18 @@ $completed = isset($_POST['completed']);
     <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
-                <!-- <div class="checkbox">
-                    <form action="/app/tasks/checkbox.php" method="POST">
-                        <input type="hidden" name="checkbox-id" value="<?= $task['id'] ?>">
-                        <input type="checkbox" name="completed" id="completed" <?= $completed ? 'checked' : '' ?>>
-                        <label for="completed">
-                            <?= $task['name'] ?>
-                        </label>
-                    </form>
-                </div> -->
-
                 <div class="task-box">
-                    <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
+                    <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a>
 
                     <?php $status = task_status($task); ?>
 
-                    <!-- <div class="status-icon">
-                        <?php
-                        if ($status['completed'] === 'checked') : ?>
-                            <div class="green"></div>
-                        <?php else : ?>
-                            <div class="red"></div>
-                        <?php endif ?>
-                    </div> -->
-
                     <div class="complete-form">
                         <form action="/app/tasks/status.php?origin=tasks.php&list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" method="post">
-                            <div class="completed-button">
+                            <div class="complete-button">
                                 <input name="status" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
                                 <label for="completed">completed</label>
                             </div>
-                            <div class="uncompleted-button">
+                            <div class="complete-button">
                                 <input name="status" id="uncompleted" value="uncompleted" type="radio" <?= $status['uncompleted'] ?>>
                                 <label for="uncompleted">uncompleted</label>
                             </div>
@@ -58,24 +39,24 @@ $completed = isset($_POST['completed']);
                     <button class="see-less-button hide">see less</button>
 
                     <div class="task-info">
-                        (<a href="/single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a>)<br>
-                        <?= $task['deadline_at'] ?><br>
+                        <p>in list:</p>
+                        <h3><a href="/single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a></h3>
+                        <p> deadline: <?= $task['deadline_at'] ?></p>
 
                         <button>
                             <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
                         </button>
-                        <button>
-                            <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Delete task</a>
+                        <button class="delete">
+                            <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
                         </button>
 
-                        <br>Status:
-                        <?php if (isset($task['completed_at'])) : ?>
-                            Completed!
-                        <?php else : ?>
-                            Uncompleted!
-                        <?php endif ?>
-
-
+                        <p>status:
+                            <?php if (isset($task['completed_at'])) : ?>
+                                completed!
+                            <?php else : ?>
+                                uncompleted!
+                            <?php endif ?>
+                        </p>
 
                     </div>
                 </div>
