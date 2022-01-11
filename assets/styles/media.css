@@ -8,14 +8,27 @@
     width: 180px;
   }
   .counter {
-    justify-content: space-evenly !important;
+    justify-content: flex-start !important;
+    gap: 50px !important;
   }
   .due-date-tracker {
     flex-direction: row !important;
     flex-wrap: wrap;
-    gap: 50px !important;
+    gap: 60px !important;
   }
   .motivator {
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    margin-left: 100px;
+    margin-bottom: 60px;
+  }
+  .content {
+    display: flex;
+  }
+  .lists-list,
+  .create-new-list {
+    width: 40%;
+  }
+  .create-new-list {
+    margin-top: 70px;
   }
 }
