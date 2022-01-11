@@ -18,36 +18,6 @@ function is_logged_in()
     }
 }
 
-function welcome_message()
-{
-    if (isset($_SESSION['user'])) {
-        $name = $_SESSION['user']['name'];
-        return 'Welcome, ' . $name . '!';
-    }
-}
-
-function show_error()
-{
-    if (isset($_SESSION['errors'])) {
-        foreach ($_SESSION['errors'] as $error) {
-            unset($_SESSION['errors']);
-            return $error;
-        }
-        unset($_SESSION['errors']);
-    }
-}
-
-function show_message()
-{
-    if (isset($_SESSION['messages'])) {
-        foreach ($_SESSION['messages'] as $message) {
-            unset($_SESSION['messages']);
-            return $message;
-        }
-        unset($_SESSION['messages']);
-    }
-}
-
 function get_image_url(PDO $database, $user_id)
 {
     $statement = $database->prepare("SELECT image_url FROM users WHERE id = :id");
@@ -136,7 +106,25 @@ function get_tasks(PDO $database)
     return $tasks;
 }
 
-function get_single_task(PDO $database, $list_id, $task_id)
+// function get_single_task(PDO $database, $task_id)
+// {
+//     $user_id = $_SESSION['user']['id'];
+
+//     $statement = $database->prepare(
+//         "SELECT *
+//     FROM tasks
+//     WHERE user_id = :user_id AND tasks.id = :task_id"
+//     );
+//     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+//     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
+//     $statement->execute();
+
+//     $task = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+//     return $task;
+// }
+
+function get_single_task_from_list(PDO $database, $list_id, $task_id)
 {
     $user_id = $_SESSION['user']['id'];
 

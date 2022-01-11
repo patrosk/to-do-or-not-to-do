@@ -20,17 +20,6 @@ if (isset($_GET['id'])) {
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
 
-    // failed attempt at using inner join for a single query instead of two:
-    // $statement = $database->prepare('DELETE lists.* , tasks.*
-    // FROM lists
-    // INNER JOIN tasks
-    // ON tasks.list_id = lists.id
-    // WHERE lists.user_id = :user_id
-    // AND lists.id = :id');
-    // $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    // $statement->bindParam(':id', $id, PDO::PARAM_INT);
-    // $statement->execute();
-
     $_SESSION['messages'][] = 'List and tasks deleted from your profile!';
 }
 redirect('/lists.php');

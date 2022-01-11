@@ -6,10 +6,20 @@ require __DIR__ . '/views/messages.php'; ?>
 
 <?php
 $user_id = $_SESSION['user']['id'];
-$list_id = $_GET['list_id'];
 $task_id = $_GET['task_id'];
-$tasks = get_single_task($database, $list_id, $task_id);
+$list_id = $_GET['list_id'];
+$tasks = get_single_task_from_list($database, $list_id, $task_id);
 $task = $tasks[0];
+
+// if (isset($_GET['list_id'])) {
+//     $list_id = $_GET['list_id'];
+//     $tasks = get_single_task_from_list($database, $list_id, $task_id);
+//     $task = $tasks[0];
+// } else {
+//     $tasks = get_single_task($database, $task_id);
+//     print_r($tasks);
+//     $task = $tasks[0];
+// }
 ?>
 
 <?= show_message() ?><br>
@@ -19,7 +29,9 @@ $task = $tasks[0];
 <h3>task description:</h3>
 <p><?= $task['description'] ?></p>
 <p class="no-bottom-margin">in list:</p>
-<h3 class="no-top-margin"><a href="/single_list.php?id=<?= $list_id ?>"><?= $task['title'] ?></a></h3>
+<?php if (isset($list_id)) : ?>
+    <h3 class="no-top-margin"><a href="/single_list.php?id=<?= $list_id ?>"><?= $task['title'] ?></a></h3>
+<?php endif ?>
 <p>deadline: <?= $task['deadline_at'] ?></p>
 
 
