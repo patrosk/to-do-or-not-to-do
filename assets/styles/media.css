@@ -1,0 +1,21 @@
+@media screen and (min-width: 760px) {
+  .task-list {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  .task-list li {
+    width: 180px;
+  }
+  .counter {
+    justify-content: space-evenly !important;
+  }
+  .due-date-tracker {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 50px !important;
+  }
+  .motivator {
+    justify-content: center !important;
+  }
+}

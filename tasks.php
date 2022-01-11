@@ -15,7 +15,7 @@ $completed = isset($_POST['completed']);
 <h2>Your Tasks</h2>
 
 <div>
-    <ul>
+    <ul class="task-list">
         <?php foreach ($tasks as $task) : ?>
             <li>
                 <div class="task-box">
