@@ -51,6 +51,20 @@ body {
     --accent-color: #ff9900;
     --font-color: #f9f3ed;
   }
+
+  .due-today li:hover a {
+    background-color: var(--font-color) !important;
+  }
+
+  .task-button a,
+  .list-titles a {
+    color: var(--background-color) !important;
+  }
+  .task-box a:hover,
+  .task-button a:hover,
+  .list-titles a:hover {
+    color: var(--font-color) !important;
+  }
 }
 
 main,

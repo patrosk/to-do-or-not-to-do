@@ -113,6 +113,9 @@ form button {
 }
 .avatar-upload input {
   all: unset;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 .delete-profile button {
   all: unset;
@@ -266,13 +269,13 @@ input[type='radio']::before {
 input[type='radio']:checked::before {
   transform: scale(1);
 }
-.complete-button {
-  z-index: 0;
-  /* display: flex;
+/* .complete-button {
+  z-index: 0; */
+/* display: flex;
   padding-top: 10px;
   padding-bottom: 5px;
   gap: 15px; */
-}
+/* } */
 input#completed,
 input#uncompleted {
   cursor: pointer;
@@ -328,16 +331,6 @@ input#uncompleted {
   border-radius: 6px;
   transition: 0.5s ease;
 }
-.task-info button.delete,
-.task-button button.delete,
-.list-titles button.delete {
-  background-color: var(--accent-color);
-}
-.task-info button.delete:hover,
-.task-button button.delete:hover,
-.list-titles button.delete:hover {
-  box-shadow: inset 0px 0px 0px 2px var(--primary-color);
-}
 .task-info button:hover,
 .task-button button:hover,
 .list-titles button:hover {
@@ -347,6 +340,18 @@ input#uncompleted {
 .task-button button a:hover,
 .list-titles button a:hover {
   color: var(--background-color);
+}
+button.delete {
+  background-color: var(--accent-color);
+}
+button.delete a {
+  color: var(--background-color);
+}
+button.delete:hover a {
+  color: var(--font-color);
+}
+button.delete:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--primary-color);
 }
 
 .icon {

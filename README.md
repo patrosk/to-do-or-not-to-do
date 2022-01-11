@@ -4,6 +4,12 @@ INSERT MANDATORY GIF
 
 To Do-applicatopn. Text about the project and why it exists. This would also be a great place to link the project online.
 
+CSS: kebab-case
+PHP: snake_case
+HTML: kebab-case(for classes)
+File names: snake_case
+JavaScript: camelCase
+
 # Installation
 
 Add the installation instructions.

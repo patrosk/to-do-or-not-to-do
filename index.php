@@ -2,6 +2,7 @@
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
 require __DIR__ . '/views/navigation.php';
+require __DIR__ . '/views/messages.php';
 ?>
 
 <h1 class="heading">To Do Or Not To Do</h1>
@@ -12,7 +13,7 @@ require __DIR__ . '/views/navigation.php';
     <?php if (is_logged_in()) : ?>
         <h4><?= welcome_message() ?></h4>
         <div class="img-box">
-            <img src="<?= get_avatar() ?>" alt="">
+            <img src="<?= get_avatar() ?>" alt="image uploaded by the user OR a placeholder image of a rubber duck">
         </div>
 
         <div class="due-today">

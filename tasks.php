@@ -1,7 +1,8 @@
 <?php
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
-require __DIR__ . '/views/navigation.php'; ?>
+require __DIR__ . '/views/navigation.php';
+require __DIR__ . '/views/messages.php'; ?>
 
 <?php
 $user_id = $_SESSION['user']['id'];
@@ -44,7 +45,7 @@ $completed = isset($_POST['completed']);
                         <p> deadline: <?= $task['deadline_at'] ?></p>
 
                         <button>
-                            <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+                            <a href="/edit_task.php?origin=tasks.php&id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
                         </button>
                         <button class="delete">
                             <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>

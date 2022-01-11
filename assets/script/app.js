@@ -49,15 +49,23 @@ taskBoxes.forEach((taskBox) => {
   });
 });
 
+const backToTop = document.querySelector('.back-to-top');
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo(0, 0);
+});
+
 const changeTitleButton = document.querySelector('.change-title-button');
-const changeTitle = document.querySelector('.change-title');
-const addTaskButton = document.querySelector('.add-task-button');
-const addTask = document.querySelector('.add-task');
+if (changeTitleButton) {
+  const changeTitle = document.querySelector('.change-title');
+  const addTaskButton = document.querySelector('.add-task-button');
+  const addTask = document.querySelector('.add-task');
 
-changeTitleButton.addEventListener('click', () => {
-  changeTitle.classList.toggle('display');
-});
+  changeTitleButton.addEventListener('click', () => {
+    changeTitle.classList.toggle('display');
+  });
 
-addTaskButton.addEventListener('click', () => {
-  addTask.classList.toggle('display');
-});
+  addTaskButton.addEventListener('click', () => {
+    addTask.classList.toggle('display');
+  });
+}

@@ -55,9 +55,8 @@ function get_image_url(PDO $database, $user_id)
 
     $statement->execute();
     $image = $statement->fetch(PDO::FETCH_ASSOC);
-    $image_url = $image['image_url'];
 
-    return $image_url;
+    return $image['image_url'];
 }
 
 function get_avatar()

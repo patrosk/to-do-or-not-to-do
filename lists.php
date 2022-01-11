@@ -1,7 +1,8 @@
 <?php
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
-require __DIR__ . '/views/navigation.php'; ?>
+require __DIR__ . '/views/navigation.php';
+require __DIR__ . '/views/messages.php'; ?>
 
 <?= show_message() ?>
 

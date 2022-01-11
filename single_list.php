@@ -2,6 +2,7 @@
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
 require __DIR__ . '/views/navigation.php';
+require __DIR__ . '/views/messages.php';
 ?>
 
 <?php
@@ -58,9 +59,9 @@ $tasks = get_tasks_from_list($database, $id); ?>
 
                     <p>status:
                         <?php if (isset($task['completed_at'])) : ?>
-                            completed!
+                            completed!<img class="icon" src="/images/check.png" alt="green check mark">
                         <?php else : ?>
-                            uncompleted!
+                            uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
                         <?php endif ?>
                     </p>
 

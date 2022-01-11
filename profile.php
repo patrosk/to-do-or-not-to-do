@@ -1,7 +1,8 @@
 <?php
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
-require __DIR__ . '/views/navigation.php'; ?>
+require __DIR__ . '/views/navigation.php';
+require __DIR__ . '/views/messages.php'; ?>
 
 <div>
     <?= show_error() ?>
@@ -18,7 +19,7 @@ $completed_count = count($task_status['completed']);
 ?>
 
 <div class="img-box">
-    <img src="<?= get_avatar() ?>" alt="">
+    <img src="<?= get_avatar() ?>" alt="image uploaded by the user OR a placeholder image of a rubber duck">
 </div>
 
 <ul>
