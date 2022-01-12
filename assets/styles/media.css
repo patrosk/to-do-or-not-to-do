@@ -31,4 +31,19 @@
   .create-new-list {
     margin-top: 70px;
   }
+  .home-buttons {
+    align-items: flex-start !important;
+  }
+
+  .register,
+  .login,
+  .change-avatar,
+  .change-email,
+  .change-password,
+  .delete-profile,
+  .change-title,
+  .add-task,
+  .edit-task {
+    width: 50% !important;
+  }
 }
