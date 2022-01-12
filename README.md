@@ -10,10 +10,10 @@ Link to live page: https://www.patrosk.one/index.php
 
 I have used different naming conventions in my code, but they are consistent within each language.
 
-CSS: kebab-case
-HTML: kebab-case(for classes)
-PHP: snake_case
-File names: snake_case
+CSS: kebab-case \
+HTML: kebab-case(for classes)\
+PHP: snake_case\
+File names: snake_case\
 JavaScript: camelCase
 
 # Installation
