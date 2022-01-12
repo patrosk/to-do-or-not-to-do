@@ -6,7 +6,7 @@ To Do Or Not To Do is an application where the user can create different lists w
 
 Feel free to add your own account!
 
-Link to live page:
+Link to live page: https://www.patrosk.one/index.php
 
 I have used different naming conventions in my code, but they are consistent within each language.
 
