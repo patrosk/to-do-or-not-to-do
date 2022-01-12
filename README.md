@@ -1,4 +1,4 @@
-INSERT MANDATORY GIF
+<img src="https://media2.giphy.com/media/pTQUOfSmjo2hG/giphy.gif?cid=ecf05e47iu5wa5eou7cych7jbnzz6t7mvct0rvnjs5zdjev4&rid=giphy.gif&ct=g" width="100%" >
 
 # To Do Or Not To Do
 
@@ -18,11 +18,26 @@ JavaScript: camelCase
 
 # Installation
 
-Add the installation instructions.
+Install this project by following these steps:
+
+- Clone the repository from this address:
+
+  > https://github.com/patrosk/to-do-or-not-to-do
+
+- In the project's root folder, start a php server by typing this in your terminal:
+
+  > php -S localhost:8000
+
+- Open up your browser and paste this URL in the address bar:
+
+  > https://localhost:8000
+
+- If that doesn't work, paste this in the address bar instead:
+  > https://localhost:8000/index.php
 
 # Code Review
 
-Code review written by [Jane Doh](https://github.com/username).
+Code review written by [Johanna Jönsson](https://github.com/JonssonJohanna).
 
 1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
 2. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
@@ -39,5 +54,5 @@ Code review written by [Jane Doh](https://github.com/username).
 
 Tested by the following people:
 
-1. Jane Doe
-2. John Doe
+1. Sofia Rönnkvist
+2. Amanda Hultén
