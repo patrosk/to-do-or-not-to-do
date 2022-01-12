@@ -28,7 +28,7 @@ if (isset($_POST['email'], $_POST['password'])) {
             "image_url" => $image_url
         ];
 
-        redirect('/index.php');
+        redirect('/');
     }
 
     $_SESSION['errors'][] = "Ooops! Something went wrong. You've entered an incorrect email address or password.";

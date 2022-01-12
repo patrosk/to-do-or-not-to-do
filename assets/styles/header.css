@@ -36,28 +36,6 @@ body {
   font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #252423;
-    --primary-color: #f4a84d;
-    --secondary-color: #df5e00;
-    --accent-color: #ff9900;
-    --font-color: #f9f3ed;
-  }
-  .due-today li:hover a {
-    background-color: var(--font-color) !important;
-  }
-  .task-button a,
-  .list-titles a {
-    color: var(--background-color) !important;
-  }
-  .task-box a:hover,
-  .task-button a:hover,
-  .list-titles a:hover {
-    color: var(--font-color) !important;
-  }
-}
-
 main,
 footer {
   padding: 30px;

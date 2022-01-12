@@ -42,5 +42,20 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
 
     $statement->execute();
 
+    $statement = $database->prepare('SELECT * FROM users WHERE email = :email');
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->execute();
+
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if (password_verify($_POST['password'], $user['password'])) {
+        $_SESSION['user'] = [
+            "id" => $user['id'],
+            "name" => $user['username'],
+            "email" => $user['email'],
+            "image_url" => $image_url
+        ];
+    }
+
     redirect('/');
 }
