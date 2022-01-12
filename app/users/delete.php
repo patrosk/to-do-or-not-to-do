@@ -37,5 +37,7 @@ if (isset($_GET['id'])) {
 
     unset($_SESSION['user']);
 
+    $_SESSION['messages'][] = 'Profile deleted!';
+
     redirect('/');
 }

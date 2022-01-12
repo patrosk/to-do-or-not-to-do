@@ -31,8 +31,6 @@ function get_image_url(PDO $database, $user_id)
 
 function get_avatar()
 {
-    // $_SESSION['user']['image_url'] ?? 'rubber_duck.png';
-
     $avatar = $_SESSION['user']['image_url'];
 
     if ($avatar === null) {
@@ -105,24 +103,6 @@ function get_tasks(PDO $database)
 
     return $tasks;
 }
-
-// function get_single_task(PDO $database, $task_id)
-// {
-//     $user_id = $_SESSION['user']['id'];
-
-//     $statement = $database->prepare(
-//         "SELECT *
-//     FROM tasks
-//     WHERE user_id = :user_id AND tasks.id = :task_id"
-//     );
-//     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-//     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
-//     $statement->execute();
-
-//     $task = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-//     return $task;
-// }
 
 function get_single_task_from_list(PDO $database, $list_id, $task_id)
 {

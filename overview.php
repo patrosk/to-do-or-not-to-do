@@ -48,32 +48,51 @@ if (isset($task_status)) {
 
 <h2>Due Date Tracker</h2>
 
-
-
 <div>
     <ul class="due-date-tracker">
         <?php foreach ($tasks as $task) :
             $name = $task['name'];
-            $deadline_at = $task['deadline_at']; ?>
-            <li>
-                <h4><?= $deadline_at ?></h4>
-                <h3><a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
-                <?php
-                if ($deadline_at === date('Y-m-d')) : ?>
-                    Due today!<br>
-                <?php endif ?>
-                <?php if ($deadline_at < date('Y-m-d')) : ?>
+            $deadline_at = $task['deadline_at'];
+            if ($deadline_at >= date('Y-m-d')) : ?>
+                <li>
+                    <h4><?= $deadline_at ?></h4>
+                    <h3><a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
+                    <?php
+                    if ($deadline_at === date('Y-m-d')) : ?>
+                        Due today!<br>
+                    <?php endif ?>
+                    <!-- <?php if ($deadline_at < date('Y-m-d')) : ?>
                     Deadline passed!<img class="icon" src="/images/cross.png" alt="red cross mark"><br>
-                <?php endif ?>
-                <?php if (isset($task['completed_at'])) : ?>
-                    Completed!<img class="icon" src="/images/check.png" alt="green check mark">
-                <?php else : ?>
-                    Uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
-                <?php endif ?>
-            </li>
-
-
+                <?php endif ?> -->
+                    <?php if (isset($task['completed_at'])) : ?>
+                        Completed!<img class="icon" src="/images/check.png" alt="green check mark">
+                    <?php else : ?>
+                        Uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
+                    <?php endif ?>
+                </li>
+            <?php endif ?>
         <?php endforeach; ?>
+    </ul>
+</div>
+
+<h2>Deadline passed</h2>
+<div>
+    <ul class="deadline-passed">
+        <?php foreach ($tasks as $task) :
+            $name = $task['name'];
+            $deadline_at = $task['deadline_at'];
+            if ($deadline_at < date('Y-m-d')) : ?>
+                <li>
+                    <h4><?= $deadline_at ?></h4>
+                    <h3><a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
+                    <?php if (isset($task['completed_at'])) : ?>
+                        Completed!<img class="icon" src="/images/check.png" alt="green check mark">
+                    <?php else : ?>
+                        Uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
+                    <?php endif ?>
+                </li>
+            <?php endif ?>
+        <?php endforeach ?>
     </ul>
 </div>
 

@@ -1,17 +1,26 @@
 @media screen and (min-width: 760px) {
+  .show-error {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+  }
+  .tasks {
+    text-align: left !important;
+  }
   .task-list {
     display: flex;
     gap: 50px;
     flex-wrap: wrap;
   }
   .task-list li {
-    width: 180px;
+    width: 205px;
   }
   .counter {
     justify-content: flex-start !important;
     gap: 50px !important;
   }
-  .due-date-tracker {
+  .due-date-tracker,
+  .deadline-passed {
     flex-direction: row !important;
     flex-wrap: wrap;
     gap: 60px !important;
@@ -62,5 +71,27 @@
     align-items: flex-end;
     transform: translateY(-388px);
     padding-right: 100px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #252423;
+    --primary-color: #f4a84d;
+    --secondary-color: #df5e00;
+    --accent-color: #ff9900;
+    --font-color: #f9f3ed;
+  }
+  .due-today li:hover a {
+    background-color: var(--font-color) !important;
+  }
+  .task-button a,
+  .list-titles a {
+    color: var(--background-color) !important;
+  }
+  .task-box a:hover,
+  .task-button a:hover,
+  .list-titles a:hover {
+    color: var(--font-color) !important;
   }
 }

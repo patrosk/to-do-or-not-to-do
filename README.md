@@ -1,12 +1,18 @@
 INSERT MANDATORY GIF
 
-# Project Title
+# To Do Or Not To Do
 
-To Do-applicatopn. Text about the project and why it exists. This would also be a great place to link the project online.
+To Do Or Not To Do is an application where the user can create different lists with tasks. Each task can be marked as completed or uncompleted, and it is possible to add and remove tasks from the diffferent lists. The user can upload a profile picture and the app shows the user which tasks are due soon.
+
+Feel free to add your own account!
+
+Link to live page:
+
+I have used different naming conventions in my code, but they are consistent within each language.
 
 CSS: kebab-case
-PHP: snake_case
 HTML: kebab-case(for classes)
+PHP: snake_case
 File names: snake_case
 JavaScript: camelCase
 

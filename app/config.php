@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-// This file contains a list of global configuration settings.
+// This file contains global configuration settings.
 
 return [
     'title' => 'To Do Or Not To Do',

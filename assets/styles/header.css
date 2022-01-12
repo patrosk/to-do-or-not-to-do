@@ -36,13 +36,6 @@ body {
   font-display: swap;
 }
 
-/* @media (prefers-color-scheme: light) {
-  body {
-    background-color: var(--background-color);
-    color: var(--font-color);
-  }
-} */
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #252423;
@@ -51,11 +44,9 @@ body {
     --accent-color: #ff9900;
     --font-color: #f9f3ed;
   }
-
   .due-today li:hover a {
     background-color: var(--font-color) !important;
   }
-
   .task-button a,
   .list-titles a {
     color: var(--background-color) !important;
@@ -71,7 +62,6 @@ main,
 footer {
   padding: 30px;
 }
-
 h1,
 h2,
 h3,
@@ -79,7 +69,6 @@ h3,
 .list-titles {
   font-family: 'Amatic';
 }
-
 h1 {
   font-size: 36px;
 }

@@ -8,7 +8,9 @@ main {
 }
 ul {
   list-style: none;
-  /* padding: 0; */
+}
+li {
+  margin-bottom: 30px;
 }
 .heading {
   text-align: center;
@@ -167,24 +169,29 @@ h2 a:hover {
   margin: 0;
   color: var(--accent-color);
 }
-.due-date-tracker {
+.due-date-tracker,
+.deadline-passed {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.due-date-tracker h4 {
+.due-date-tracker h4,
+.deadline-passed h4 {
   margin: 0;
   font-size: 24px;
 }
-.due-date-tracker h3 {
+.due-date-tracker h3,
+.deadline-passed h3 {
   font-size: 30px;
   margin: 0;
 }
-.due-date-tracker a {
+.due-date-tracker a,
+.deadline-passed a {
   text-decoration: none;
   color: var(--accent-color);
 }
-.due-date-tracker a:hover {
+.due-date-tracker a:hover,
+.deadline-passed a:hover {
   color: var(--secondary-color);
 }
 /* EDIT TASK PAGE */
@@ -204,11 +211,6 @@ h2 a:hover {
 }
 
 /* SINGLE LIST PAGE */
-.task-info,
-.add-task,
-.change-title {
-  display: none;
-}
 @keyframes reveal {
   0% {
     opacity: 0;
@@ -219,9 +221,14 @@ h2 a:hover {
 }
 .display {
   animation: reveal 0.5s linear;
-  display: block;
+  display: block !important;
 }
 .hide {
+  display: none;
+}
+.task-info,
+.add-task,
+.change-title {
   display: none;
 }
 .change-title-button,
@@ -269,13 +276,10 @@ input[type='radio']::before {
 input[type='radio']:checked::before {
   transform: scale(1);
 }
-/* .complete-button {
-  z-index: 0; */
-/* display: flex;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  gap: 15px; */
-/* } */
+.tasks {
+  min-width: 157px;
+  text-align: right;
+}
 input#completed,
 input#uncompleted {
   cursor: pointer;
@@ -353,7 +357,6 @@ button.delete:hover a {
 button.delete:hover {
   box-shadow: inset 0px 0px 0px 2px var(--primary-color);
 }
-
 .icon {
   border-radius: 0;
   height: 13px;
