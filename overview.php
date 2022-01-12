@@ -61,9 +61,6 @@ if (isset($task_status)) {
                     if ($deadline_at === date('Y-m-d')) : ?>
                         Due today!<br>
                     <?php endif ?>
-                    <!-- <?php if ($deadline_at < date('Y-m-d')) : ?>
-                    Deadline passed!<img class="icon" src="/images/cross.png" alt="red cross mark"><br>
-                <?php endif ?> -->
                     <?php if (isset($task['completed_at'])) : ?>
                         Completed!<img class="icon" src="/images/check.png" alt="green check mark">
                     <?php else : ?>
