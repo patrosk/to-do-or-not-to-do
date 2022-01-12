@@ -10,7 +10,7 @@ $task_id = $_GET['task_id'];
 ?>
 
 <div class="edit-task">
-    <form action="/app/tasks/update.php?list_id=<?= $list_id ?>&task_id=<?= $task_id ?>" method="post" id="edit_task">
+    <form action="/app/tasks/update.php?list_id=<?= $list_id ?>&task_id=<?= $task_id ?>" method="post">
         <label for="name">Task Name:</label>
         <input name="name" id="name" type="text" placeholder="New task name">
         <label for="deadline">Deadline:</label>

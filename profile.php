@@ -22,7 +22,7 @@ $completed_count = count($task_status['completed']);
     <img src="<?= get_avatar() ?>" alt="image uploaded by the user OR a placeholder image of a rubber duck">
 </div>
 
-<ul>
+<ul class="user-info">
     <li>Username: <?= get_user_info($database)['username'] ?></li>
     <li>Email address: <?= get_user_info($database)['email'] ?></li>
     <li>Number of lists: <?= $list_count ?></li>

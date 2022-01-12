@@ -8,8 +8,8 @@ require __DIR__ . '/views/messages.php';
 <h1 class="heading">To Do Or Not To Do</h1>
 <h2 class="slogan">...that is the question</h2>
 
+<h4><?= show_error() ?></h4>
 <div class="messages">
-    <h4><?= show_error() ?></h4>
     <?php if (is_logged_in()) : ?>
         <h4><?= welcome_message() ?></h4>
         <div class="img-box">
