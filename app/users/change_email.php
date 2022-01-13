@@ -14,9 +14,9 @@ if (isset($_POST['email'])) {
     $statement = $database->prepare('SELECT email FROM users WHERE email = :email');
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->execute();
-    $compareEmail = $statement->fetch(PDO::FETCH_ASSOC);
+    $compare_email = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if ($compareEmail) {
+    if ($compare_email) {
         $_SESSION['errors'][] = "This email aldready exists, try another one.";
         redirect('/profile.php');
     }

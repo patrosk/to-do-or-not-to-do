@@ -9,6 +9,7 @@ require __DIR__ . '/views/messages.php';
 <h2 class="slogan">...that is the question</h2>
 
 <h4 class="show-error"><?= show_error() ?></h4>
+<h4 class="show-message"><?= show_message() ?></h4>
 <div class="messages">
     <?php if (is_logged_in()) : ?>
         <h4><?= welcome_message() ?></h4>

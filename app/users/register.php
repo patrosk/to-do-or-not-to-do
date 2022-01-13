@@ -48,14 +48,7 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if (password_verify($_POST['password'], $user['password'])) {
-        $_SESSION['user'] = [
-            "id" => $user['id'],
-            "name" => $user['username'],
-            "email" => $user['email'],
-            "image_url" => $image_url
-        ];
-    }
+    $_SESSION['messages'][] = 'Account created! Login to start creating to do lists!';
 
     redirect('/');
 }

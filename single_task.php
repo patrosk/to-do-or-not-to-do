@@ -10,16 +10,6 @@ $task_id = $_GET['task_id'];
 $list_id = $_GET['list_id'];
 $tasks = get_single_task_from_list($database, $list_id, $task_id);
 $task = $tasks[0];
-
-// if (isset($_GET['list_id'])) {
-//     $list_id = $_GET['list_id'];
-//     $tasks = get_single_task_from_list($database, $list_id, $task_id);
-//     $task = $tasks[0];
-// } else {
-//     $tasks = get_single_task($database, $task_id);
-//     print_r($tasks);
-//     $task = $tasks[0];
-// }
 ?>
 
 <?= show_message() ?><br>

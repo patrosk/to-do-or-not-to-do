@@ -55,7 +55,7 @@ $completed_count = count($task_status['completed']);
         <label for="password">current password:</label>
         <input name="password" id="password" type="password">
         <label for="new_password">select your new password:</label>
-        <input name="new_password" id="new_password" type="password">
+        <input name="new_password" id="new_password" type="password" minlength="10" required>
         <button type="submit">Change password</button>
     </form>
 </div>

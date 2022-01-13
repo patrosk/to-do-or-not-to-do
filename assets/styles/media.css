@@ -4,6 +4,11 @@
     margin-right: 30%;
     margin-top: 50px;
   }
+  .show-message {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+  }
   .tasks {
     text-align: left !important;
   }
