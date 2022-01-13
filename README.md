@@ -38,7 +38,6 @@ Install this project by following these steps:
 # Code Review
 
 Code review written by [Johanna Jönsson](https://github.com/JonssonJohanna).
-Code review written by [Johanna Jönsson](https://github.com/JonssonJohanna).
 
 1. `change_email.php:19` - Remember to be consistent with naming conventions, you use snake_case almost everywhere but in change_email.php you mix to camelCase on line 19.
 2. `functions.php:` - Suitable function names and on variables which is good for readability and makes the code easier to understand and readible.
