@@ -20,8 +20,8 @@ body {
 
 @font-face {
   font-family: 'Amatic';
-  src: url('/assets/styles/fonts/AmaticSC-Bold.woff2') format('woff2'),
-    url('/assets/styles/fonts/AmaticSC-Bold.woff') format('woff');
+  src: url('fonts/AmaticSC-Bold.woff2') format('woff2'),
+    url('fonts/AmaticSC-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -29,8 +29,8 @@ body {
 
 @font-face {
   font-family: 'Quicksand';
-  src: url('/assets/styles/fonts/Quicksand-Regular.woff2') format('woff2'),
-    url('/assets/styles/fonts/Quicksand-Regular.woff') format('woff');
+  src: url('fonts/Quicksand-Regular.woff2') format('woff2'),
+    url('fonts/Quicksand-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
