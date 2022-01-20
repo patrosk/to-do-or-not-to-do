@@ -94,10 +94,9 @@ $tasks = get_tasks_from_list($database, $id); ?>
 </div>
 
 <div class="add-all-task-complete">
-    <form action="/app/tasks/status.php?origin=single_list.php&list_id=<?= $task['list_id'] ?>" method="post">
-        <!-- Need to get all tasks in the list -->
+    <form action="/app/tasks/status_all.php" method="post">
         <label for="status-all-tasks-complete"></label>
-        <input type="hidden" name="status-all-tasks-complete" id="completed" value="completed" type="radio" <?= $status['completed'] ?>>
+        <input type="hidden" name="list_id" id="completed" value="<?= $_GET['id'] ?>">
         <button type="submit">Complete all tasks</button>
     </form>
 
