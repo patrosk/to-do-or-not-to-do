@@ -35,6 +35,12 @@ Install this project by following these steps:
 - If that doesn't work, paste this in the address bar instead:
   > https://localhost:8000/index.php
 
+# Wunderlist+
+
+Additions made by [Emma Hansson](https://github.com/h-emma).
+
+Link to pull request: 
+
 # Code Review
 
 Code review written by [Johanna Jönsson](https://github.com/JonssonJohanna).
