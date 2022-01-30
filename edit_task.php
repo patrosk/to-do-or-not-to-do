@@ -7,6 +7,7 @@ require __DIR__ . '/views/navigation.php'; ?>
 <?php
 $list_id = $_GET['id'];
 $task_id = $_GET['task_id'];
+$lists = get_lists($database);
 ?>
 
 <div class="edit-task">
@@ -17,6 +18,13 @@ $task_id = $_GET['task_id'];
         <input name="deadline" id="deadline" type="date">
         <label for="description">Description:</label><br>
         <textarea name="description" id="description" form="edit_task" placeholder="New description"></textarea>
+        <label for="list">Add the task to: </label>
+        <select name="list" id="list">
+            <?php
+            foreach ($lists as $list) : ?>
+                <option class="list" value="<?= $list['id']; ?>"><?= htmlspecialchars($list['title']); ?></option>
+            <?php endforeach; ?>
+        </select>
         <button type="submit">Update task</button>
         <button type="button">
             <?php if (isset($_GET['origin'])) : ?>
