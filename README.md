@@ -37,9 +37,11 @@ Install this project by following these steps:
 
 # Wunderlist+
 
-Additions made by [Emma Hansson](https://github.com/h-emma).
+Additions made by [Emma Hansson](https://github.com/h-emma):
+- make it possible for the user to move tasks between lists
+- the user can mark all tasks completed with one click
 
-Link to pull request: 
+Link to pull request: https://github.com/patrosk/to-do-or-not-to-do/pull/3 
 
 # Code Review
 
