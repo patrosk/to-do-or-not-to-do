@@ -17,5 +17,6 @@ $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 $statement->bindParam(':completed_at', $completed_at, PDO::PARAM_STR);
 $statement->execute();
 
+$_SESSION['messages'][] = 'All tasks are completed!';
 
 redirect('/single_list.php?id=' . $list_id);
