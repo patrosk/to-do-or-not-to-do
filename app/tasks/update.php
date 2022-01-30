@@ -25,6 +25,10 @@ if (isset($_POST['deadline'])) {
     $deadline_at = $_POST['deadline'];
 }
 
+if (isset($_POST['list'])) {
+    $list_id = $_POST['list'];
+}
+
 //if statements to check which attributes have been given new values and then update them in the database
 if ($name) {
     $statement = $database->prepare(
@@ -68,6 +72,22 @@ if ($deadline_at) {
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
     $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $_SESSION['messages'][] = 'Task updated!';
+}
+
+if ($list_id) {
+    $statement = $database->prepare(
+        'UPDATE tasks
+    SET list_id = :list_id
+    WHERE user_id = :user_id AND id = :task_id'
+    );
+
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $list_id, PDO::PARAM_INT);
+    $statement->bindParam(':task_id', $task_id, PDO::PARAM_INT);
+
     $statement->execute();
 
     $_SESSION['messages'][] = 'Task updated!';

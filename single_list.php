@@ -93,4 +93,13 @@ $tasks = get_tasks_from_list($database, $id); ?>
     </form>
 </div>
 
+<div class="add-all-task-complete">
+    <form action="/app/tasks/status_all.php" method="post">
+        <label for="status-all-tasks-complete"></label>
+        <input type="hidden" name="list_id" id="completed" value="<?= $_GET['id'] ?>">
+        <button class="add-task-button" type="submit">Complete all tasks</button>
+    </form>
+
+</div>
+
 <?php require __DIR__ . '/views/footer.php';
