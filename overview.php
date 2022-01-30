@@ -20,19 +20,19 @@ if (isset($task_status)) {
 
 <div class="counter">
     <div class="lists">
-        <h2><a href="/lists.php">Your lists</a></h2>
+        <h2><a href="lists.php">Your lists</a></h2>
         <h4>Number of lists:</h4>
 
         <?= $list_count  ?>
     </div>
 
     <div class="tasks">
-        <h2><a href="/tasks.php">Your tasks</a></h2>
+        <h2><a href="tasks.php">Your tasks</a></h2>
         <h4>Number of tasks:</h4>
 
         Total: <?= $task_count ?><br>
-        <img class="icon" src="/images/check.png" alt="green check mark">Completed: <?= $completed_count ?><br>
-        <img class="icon" src="/images/cross.png" alt="red cross mark">Uncompleted: <?= $uncompleted_count ?><br>
+        <img class="icon" src="images/check.png" alt="green check mark">Completed: <?= $completed_count ?><br>
+        <img class="icon" src="images/cross.png" alt="red cross mark">Uncompleted: <?= $uncompleted_count ?><br>
     </div>
 </div>
 
@@ -56,15 +56,15 @@ if (isset($task_status)) {
             if ($deadline_at >= date('Y-m-d')) : ?>
                 <li>
                     <h4><?= $deadline_at ?></h4>
-                    <h3><a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
+                    <h3><a href="single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
                     <?php
                     if ($deadline_at === date('Y-m-d')) : ?>
                         Due today!<br>
                     <?php endif ?>
                     <?php if (isset($task['completed_at'])) : ?>
-                        Completed!<img class="icon" src="/images/check.png" alt="green check mark">
+                        Completed!<img class="icon" src="images/check.png" alt="green check mark">
                     <?php else : ?>
-                        Uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
+                        Uncompleted!<img class="icon" src="images/cross.png" alt="red cross mark">
                     <?php endif ?>
                 </li>
             <?php endif ?>
@@ -81,11 +81,11 @@ if (isset($task_status)) {
             if ($deadline_at < date('Y-m-d')) : ?>
                 <li>
                     <h4><?= $deadline_at ?></h4>
-                    <h3><a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
+                    <h3><a href="single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $name ?></a></h3>
                     <?php if (isset($task['completed_at'])) : ?>
-                        Completed!<img class="icon" src="/images/check.png" alt="green check mark">
+                        Completed!<img class="icon" src="images/check.png" alt="green check mark">
                     <?php else : ?>
-                        Uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
+                        Uncompleted!<img class="icon" src="images/cross.png" alt="red cross mark">
                     <?php endif ?>
                 </li>
             <?php endif ?>

@@ -33,7 +33,7 @@ $completed_count = count($task_status['completed']);
 
 <div class="change-avatar">
     <h2>Change your profile picture</h2>
-    <form class="avatar-upload" action=" /app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
+    <form class="avatar-upload" action="/app/users/avatar/upload.php" method="post" enctype="multipart/form-data">
         <label for="avatar">Upload your avatar image in PNG/JPG format</label>
         <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
         <button type="submit">Upload image</button>
@@ -42,7 +42,7 @@ $completed_count = count($task_status['completed']);
 
 <div class="change-email">
     <h2>Change your email address</h2>
-    <form action="/app/users/change_email.php" method="post">
+    <form action="app/users/change_email.php" method="post">
         <label for="email">new email address:</label>
         <input type="email" name="email" id="email">
         <button type="submit">Change email address</button>
@@ -51,7 +51,7 @@ $completed_count = count($task_status['completed']);
 
 <div class="change-password">
     <h2>Change your password</h2>
-    <form action="/app/users/change_password.php" method="post">
+    <form action="app/users/change_password.php" method="post">
         <label for="password">current password:</label>
         <input name="password" id="password" type="password">
         <label for="new_password">select your new password:</label>
@@ -67,7 +67,7 @@ $completed_count = count($task_status['completed']);
         This cannot be undone!
     </p>
     <button type="button">
-        <a href="/app/users/delete.php?id=<?= $_SESSION['user']['id'] ?>" onclick="return confirm('Are you sure you want to delete your profile permanently?');"> Delete profile</a>
+        <a href="app/users/delete.php?id=<?= $_SESSION['user']['id'] ?>" onclick="return confirm('Are you sure you want to delete your profile permanently?');"> Delete profile</a>
     </button>
 </div>
 

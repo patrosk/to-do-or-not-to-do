@@ -20,17 +20,17 @@ $task = $tasks[0];
 <p><?= $task['description'] ?></p>
 <p class="no-bottom-margin">in list:</p>
 <?php if (isset($list_id)) : ?>
-    <h3 class="no-top-margin"><a href="/single_list.php?id=<?= $list_id ?>"><?= $task['title'] ?></a></h3>
+    <h3 class="no-top-margin"><a href="single_list.php?id=<?= $list_id ?>"><?= $task['title'] ?></a></h3>
 <?php endif ?>
 <p>deadline: <?= $task['deadline_at'] ?></p>
 
 
 <div class="task-button">
     <button>
-        <a href="/edit_task.php?origin=single_task&id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+        <a href="edit_task.php?origin=single_task&id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
     </button>
     <button class="delete">
-        <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
+        <a href="app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
     </button>
 </div>
 

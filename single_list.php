@@ -25,7 +25,7 @@ $tasks = get_tasks_from_list($database, $id); ?>
         <?php $status = task_status($task); ?>
         <li>
             <div class="task-box">
-                <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a>
+                <a href="single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a>
 
                 <?php $status = task_status($task); ?>
 
@@ -51,17 +51,17 @@ $tasks = get_tasks_from_list($database, $id); ?>
                     <p> deadline: <?= $task['deadline_at'] ?></p>
 
                     <button>
-                        <a href="/edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+                        <a href="edit_task.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
                     </button>
                     <button class="delete">
-                        <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
+                        <a href="app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
                     </button>
 
                     <p>status:
                         <?php if (isset($task['completed_at'])) : ?>
-                            completed!<img class="icon" src="/images/check.png" alt="green check mark">
+                            completed!<img class="icon" src="images/check.png" alt="green check mark">
                         <?php else : ?>
-                            uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
+                            uncompleted!<img class="icon" src="images/cross.png" alt="red cross mark">
                         <?php endif ?>
                     </p>
 
@@ -73,7 +73,7 @@ $tasks = get_tasks_from_list($database, $id); ?>
 
 <button class="change-title-button">Change list title</button>
 <div class="change-title">
-    <form action="/app/lists/update.php?id=<?= $id ?>" method="post">
+    <form action="app/lists/update.php?id=<?= $id ?>" method="post">
         <label for="title">New title: </label>
         <input name="title" id="title" type="text" required>
         <button type="submit">Update title</button>
@@ -82,7 +82,7 @@ $tasks = get_tasks_from_list($database, $id); ?>
 
 <button class="add-task-button">Add task to list</button>
 <div class="add-task">
-    <form action="/app/tasks/create.php?id=<?= $id ?>" method="post" id="new_task">
+    <form action="app/tasks/create.php?id=<?= $id ?>" method="post" id="new_task">
         <label for="name">Task name: </label>
         <input name="name" id="name" type="text">
         <label for="deadline">Deadline: </label>

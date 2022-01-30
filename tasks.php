@@ -19,7 +19,7 @@ $completed = isset($_POST['completed']);
         <?php foreach ($tasks as $task) : ?>
             <li>
                 <div class="task-box">
-                    <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a>
+                    <a href="single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a>
 
                     <?php $status = task_status($task); ?>
 
@@ -41,21 +41,21 @@ $completed = isset($_POST['completed']);
 
                     <div class="task-info">
                         <p>in list:</p>
-                        <h3><a href="/single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a></h3>
+                        <h3><a href="single_list.php?id=<?= $task['list_id'] ?>"><?= $task['title'] ?></a></h3>
                         <p> deadline: <?= $task['deadline_at'] ?></p>
 
                         <button>
-                            <a href="/edit_task.php?origin=tasks.php&id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
+                            <a href="edit_task.php?origin=tasks.php&id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>">Edit task</a>
                         </button>
                         <button class="delete">
-                            <a href="/app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
+                            <a href="app/tasks/delete.php?id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>" onclick="return confirm('Are you sure you want to remove the task?');">Delete task</a>
                         </button>
 
                         <p>status:
                             <?php if (isset($task['completed_at'])) : ?>
-                                completed!<img class="icon" src="/images/check.png" alt="green check mark">
+                                completed!<img class="icon" src="images/check.png" alt="green check mark">
                             <?php else : ?>
-                                uncompleted!<img class="icon" src="/images/cross.png" alt="red cross mark">
+                                uncompleted!<img class="icon" src="images/cross.png" alt="red cross mark">
                             <?php endif ?>
                         </p>
 

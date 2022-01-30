@@ -29,12 +29,12 @@ $lists = get_lists($database);
         <button type="button">
             <?php if (isset($_GET['origin'])) : ?>
                 <?php if ($_GET['origin'] === 'single_task') : ?>
-                    <a href="/single_task.php?list_id=<?= $list_id ?>&task_id=<?= $task_id ?>">Cancel</a>
+                    <a href="single_task.php?list_id=<?= $list_id ?>&task_id=<?= $task_id ?>">Cancel</a>
                 <?php elseif ($_GET['origin'] === 'tasks.php') : ?>
-                    <a href="/tasks.php">Cancel</a>
+                    <a href="tasks.php">Cancel</a>
                 <?php endif ?>
             <?php else : ?>
-                <a href="/single_list.php?id=<?= $list_id ?>">Cancel</a>
+                <a href="single_list.php?id=<?= $list_id ?>">Cancel</a>
             <?php endif ?>
         </button>
     </form>

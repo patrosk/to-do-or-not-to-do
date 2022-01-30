@@ -34,10 +34,10 @@ function get_avatar()
     $avatar = $_SESSION['user']['image_url'];
 
     if ($avatar === null) {
-        return '/images/rubber_duck.png';
+        return 'images/rubber_duck.png';
     }
 
-    return '/uploads/' . $avatar;
+    return 'uploads/' . $avatar;
 }
 
 function get_user_info(PDO $database)

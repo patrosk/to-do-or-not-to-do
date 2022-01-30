@@ -13,12 +13,12 @@ require __DIR__ . '/views/navigation.php'; ?>
 <h2>Join us!</h2>
 <p>Want to start organising your life? <strong>Register</strong> and create your profile here:</p>
 <div class="home-buttons">
-    <button><a href="/register.php">Register</a></button>
+    <button><a href="register.php">Register</a></button>
 </div>
 
 <p>Already a member? Login to your account here:</p>
 <div class="home-buttons">
-    <button><a href="/login.php">Login</a></button>
+    <button><a href="login.php">Login</a></button>
 </div>
 
 

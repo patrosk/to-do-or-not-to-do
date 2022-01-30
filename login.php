@@ -9,7 +9,7 @@ require __DIR__ . '/views/navigation.php'; ?>
 
 <h2>Login</h2>
 <div class="login">
-    <form action="/app/users/login.php" method="post">
+    <form action="app/users/login.php" method="post">
         <label for="email">email address:</label>
         <input type="email" name="email" id="email"><br>
         <label for="password">password:</label>

@@ -24,7 +24,7 @@ require __DIR__ . '/views/messages.php';
                 <ul class="due-today">
                     <?php foreach ($tasks_due_today as $task) : ?>
                         <li>
-                            <a href="/single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
+                            <a href="single_task.php?list_id=<?= $task['list_id'] ?>&task_id=<?= $task['id'] ?>"><?= $task['name'] ?></a><br>
                         </li>
                     <?php endforeach ?>
                 </ul>
@@ -35,8 +35,8 @@ require __DIR__ . '/views/messages.php';
 
     <?php else : ?>
         <div class="home-buttons">
-            <button><a href="/login.php">Login</a></button>
-            <button><a href="/register.php">Register</a></button>
+            <button><a href="login.php">Login</a></button>
+            <button><a href="register.php">Register</a></button>
         </div>
     <?php endif ?>
 </div>
